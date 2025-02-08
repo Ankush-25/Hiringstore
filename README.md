@@ -1,1 +1,1 @@
-# Hiringstore
+Complete Documentation for installing the Hiringstore.
