@@ -1,12 +1,13 @@
-
+import './App.css'
 import { LandingPageParent } from './landingpage/LandingPageParent'
 
 function App() {
 
   return (
-    <LandingPageParent />
+    <>
+      <LandingPageParent />
+    </>
   )
 }
 
 export default App
-s
