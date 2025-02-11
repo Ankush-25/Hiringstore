@@ -1,13 +1,13 @@
-import './navbar.css'
+import { NavbarContainer } from "./navbarstyes";
+
 export function LandingNavBar(){
 
     return(
-        <>
-            Hello How are you tell about you 
+        
         <NavbarContainer >
             HelloWorld
         </NavbarContainer>
-        </>
+        
     )
 
 }
