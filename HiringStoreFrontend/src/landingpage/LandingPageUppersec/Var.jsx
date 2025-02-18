@@ -8,8 +8,8 @@ export const TopMenus = {
 
 //SearchBar
 
-export const Inputbars = [
-    { placeholder: "Skill / Designation / Companies" },
-    { placeholder: "Experience" },
-    { placeholder: "Location" }
-];
+export const Searchplaceholders = {
+    Firstplaceholder: "Skill / Designation / Companies",
+    Secondplaceholder: "Experience",
+    Thirdplaceholder: "Location"
+} 

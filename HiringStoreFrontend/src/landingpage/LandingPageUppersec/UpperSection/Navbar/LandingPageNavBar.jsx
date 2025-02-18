@@ -5,7 +5,7 @@ import "./navbar.css"
 
 export function LandingNavBar() {
     const TopMenusArray = Object.values(TopMenus)
-
+    
     return (
         <NavbarContainer >
             <LogoIcon>
