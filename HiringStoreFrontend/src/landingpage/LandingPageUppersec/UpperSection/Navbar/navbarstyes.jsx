@@ -2,17 +2,19 @@ import styled from 'styled-components';
 
 export const NavbarContainer= styled.div`
     border: 1px solid;    
-    border-color: red;
+    border-color: #515151;
     display: flex;
     padding: 2px;
+    justify-content: space-between;
     width: 100%;
+    box-sizing: border-box;
 `
 export const MenuBoxContainer= styled.div`
     width: 75px;
     display: flex;
     border-radius: 6px;
     padding: 5px;
-    color: red;
+    color: white;
     justify-content: center;
 `
 export const MenuBarContainer= styled.div`

@@ -1,0 +1,13 @@
+.SearchIcondiv{
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+}
+.SearchIcon{
+    visibility: hidden;
+    
+}
+.SearchIcon:hover{
+    visibility: visible;
+}
