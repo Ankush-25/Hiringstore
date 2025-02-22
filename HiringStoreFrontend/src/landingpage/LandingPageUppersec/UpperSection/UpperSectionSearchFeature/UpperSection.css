@@ -1,0 +1,23 @@
+.SearchIcondiv{
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+}
+.SearchIcon{
+    font-size: 20px;
+    color: #635555;
+    margin-left: 5px;
+}
+
+.Tagline{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 31px;
+}
+
+.inputSeprator{
+    color: #635555;
+    margin-left: 5px;
+    margin-right: 5px;
+}
