@@ -11,11 +11,13 @@ export function LandingNavBar() {
             <LogoIcon>
                 <img  className="logoModification" src={Imagepaths.HiringstoreslogoPath} alt="Hiring Stores Logo" />
             </LogoIcon>
-            <MenuBarContainer >
+            <MenuBarContainer>
                 {TopMenusArray.map((menu, index) => (
-                    <MenuBoxContainer key={index}>
-                        {menu}
-                    </MenuBoxContainer>
+                    <div className="ComCrouselOuter">
+                        <MenuBoxContainer key={index}>
+                            {menu}
+                        </MenuBoxContainer>
+                    </div>
                 ))}
             </MenuBarContainer>
         </NavbarContainer>
