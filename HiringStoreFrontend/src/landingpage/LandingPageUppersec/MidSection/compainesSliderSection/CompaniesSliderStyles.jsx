@@ -9,7 +9,6 @@ export const SingleCompanyComp = styled.div`
     border-radius: 5px;
        .CompaniesImages {
             height: 100px;
-            filter: drop-shadow(5px 5px 10px rgba(255, 255, 255, 0.5));
         }
 
 `
@@ -23,4 +22,20 @@ export const OuterSliderComCover = styled.div`
  overflow: hidden;
  padding: 10px;
  border: 1px solid red ;
+`
+export const SliderButton = styled.button`
+
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: 46px;
+    margin: auto;
+    padding: 13px;
+    cursor: pointer;
+    border-radius: 40px;
+
+    &:hover {
+        background-color:rgb(39, 93, 255);
+        
+    }
 `

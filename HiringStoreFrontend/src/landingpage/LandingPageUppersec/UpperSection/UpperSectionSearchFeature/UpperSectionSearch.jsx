@@ -18,7 +18,6 @@ export function UpperSectionSearch() {
   }
 
   const handleSearch = () => {
-    // Implement your search logic here using SearchValues
     console.log('Searching with values:', SearchValues);
   }
 
@@ -33,7 +32,6 @@ export function UpperSectionSearch() {
           <div className="SearchIcondiv">
             <FontAwesomeIcon 
               className="SearchIcon"
-              // style={{ color: '#635555', fontSize: '27px' }} 
               icon={faMagnifyingGlass} 
             />
           </div>
