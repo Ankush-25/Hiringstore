@@ -14,14 +14,15 @@ export const SingleCompanyComp = styled.div`
 `
 
 export const OuterSliderComCover = styled.div`
- display: flex;
- width: 1200px;
- gap: 25px;
- margin: auto;
- height: 133px;    
- overflow: hidden;
- padding: 10px;
- border: 1px solid red ;
+    display: flex;
+    width: 84%;
+    gap: 25px;
+    margin: auto;
+    height: 133px;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid red;
+
 `
 export const SliderButton = styled.button`
 
@@ -36,6 +37,14 @@ export const SliderButton = styled.button`
 
     &:hover {
         background-color:rgb(39, 93, 255);
-        
+
     }
+`
+export const CompaniesContainer = styled.div`
+    display: flex;
+    gap: 20px;
+    border: 1px solid blue;
+    overflow: hidden;
+    width: 100%;
+
 `
