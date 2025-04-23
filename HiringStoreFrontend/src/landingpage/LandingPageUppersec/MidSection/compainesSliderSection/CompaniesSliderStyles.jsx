@@ -1,50 +1,43 @@
-import styled from "styled-components";
+import styled, {keyframes ,css } from "styled-components";
 
 export const SingleCompanyComp = styled.div`
-    border : 1px solid white;
-    height : 100px;
-    width : 100px
-    overflow: hidden;
-    padding: 12px;
-    border-radius: 5px;
-       .CompaniesImages {
-            height: 100px;
-        }
-
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 16/9;
 `
-
+const scrollX = keyframes`
+from {
+    transform: translateX(0);
+}
+to {
+    transform: translateX(-100%);
+}
+`;
+const common = css`
+    display: flex;
+    align-items: center; 
+    width: auto ;
+    will-change: transform; 
+    animation:  ${scrollX}  15s linear infinite;  
+`
 export const OuterSliderComCover = styled.div`
     display: flex;
-    width: 84%;
-    gap: 25px;
-    margin: auto;
+    margin: auto; 
+    width: 70%;
     height: 133px;
     overflow: hidden;
-    padding: 10px;
-    border: 1px solid red;
-
-`
-export const SliderButton = styled.button`
-
-    background-color: white;
-    border: none;
-    color: black;
-    font-size: 46px;
-    margin: auto;
-    padding: 13px;
-    cursor: pointer;
-    border-radius: 40px;
-
-    &:hover {
-        background-color:rgb(39, 93, 255);
-
-    }
+    mask-image: linear-gradient(to right, hsl(0 0% 0% / 0),
+        hsl(0 0% 0% / 1) 10%,
+        hsl(0 0% 0% / 1) 90%,
+        hsl(0 0% 0% / 0));
 `
 export const CompaniesContainer = styled.div`
-    display: flex;
-    gap: 20px;
-    border: 1px solid blue;
-    overflow: hidden;
-    width: 100%;
-
+  ${common};
+`
+export const CompaniesContainerSec = styled.div`
+    ${common};
+    animation-direction: reverse;
+    animation-delay:-3s;
 `
