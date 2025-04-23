@@ -13,3 +13,15 @@ export const CompaniesLogoPaths={
     Netflix: "/src/assets/Netflix.png",
     Nvidia: "/src/assets/Nvidia.png",
 }
+export const SecondCompaniesLogoPaths = {
+    Salesforce: "/src/assets/salesforce.png",
+    Oracle: "/src/assets/oracle.png",
+    Adobe: "/src/assets/Adobe.png",
+    Intel: "/src/assets/intel.svg",
+    Cisco: "/src/assets/cisco.jpeg",
+    SAP: "/src/assets/sap.png",
+    Dropbox: "/src/assets/dropbox.png",
+    Spotify: "/src/assets/spotify.png",
+    Tcs: "/src/assets/tcs.png",
+  };
+  
