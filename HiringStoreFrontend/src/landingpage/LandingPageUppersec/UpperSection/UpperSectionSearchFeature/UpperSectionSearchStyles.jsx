@@ -4,7 +4,6 @@ export const UpperSearchAndTextWrapper = styled.div`
     width: 100%;
     padding: 50px;
     color: white;
-    box-sizing: border-box;
 `
 
 export const SearchBar = styled.div`
