@@ -13,3 +13,16 @@ export const Searchplaceholders = {
     Secondplaceholder: "Experience",
     Thirdplaceholder: "Location"
 } 
+
+export const popularJobDesignations = [
+    "Remote",
+    "Analyst",
+    "Marketing",
+    "Banking",
+    "Ops Manager",
+    "HR"
+];
+
+// "Customer Support ",
+//     "UI/UX ",
+//     "Project Manager",
