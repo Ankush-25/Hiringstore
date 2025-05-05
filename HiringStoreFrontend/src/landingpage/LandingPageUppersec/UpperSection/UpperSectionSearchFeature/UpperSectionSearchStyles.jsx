@@ -31,7 +31,7 @@ export const SearchInput = styled.input`
 
 export const SearchButton = styled.button`
     border: none;
-    background: purple;
+    background: #b761b7;
     color: white;
     margin-right: 8px;
     border-radius: 24px;
