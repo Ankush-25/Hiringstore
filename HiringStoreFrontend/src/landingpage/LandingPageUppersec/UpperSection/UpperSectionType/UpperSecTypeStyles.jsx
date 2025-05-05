@@ -1,20 +1,23 @@
 import styled from 'styled-components';
 
 export const JobBoxWrapper = styled.div`
-  border: 1px white solid;
   display: flex;
   justify-content: space-between;
   width: 60%;
   margin: auto;
 `;
 export const SingleJobBoxCon = styled.div`
-  border: 1px white solid;
+  background-color: #b761b7;
   border-radius: 10px;
-  padding: 5px;
+  padding: 16px;
   justify-content: center;
   display: flex;
   flex-direction: column;
   font-size: 18px;
   align-items: center;
-  
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover{
+box-shadow: 0px 0px 40px rgb(176 176 176);    cursor: pointer;
+  }
 `

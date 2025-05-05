@@ -1,1 +1,19 @@
-.iconContainer{}
+.topJobs{
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 25px;
+}
+.tobjobcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 60px
+}
+
+.singlejobdesign{
+    display: flex;
+    gap: 13px;
+}
