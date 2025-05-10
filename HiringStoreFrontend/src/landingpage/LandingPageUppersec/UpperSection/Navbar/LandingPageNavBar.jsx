@@ -1,5 +1,5 @@
 import { LogoIcon, MenuBarContainer, MenuBoxContainer, NavbarContainer } from "./navbarstyes";
-import { TopMenus } from "../../Var";
+import { TopMenus } from "../../../Var";
 import { Imagepaths } from "../../../../assets/Global_Need_files/ImagesPaths";
 import "./navbar.css"
 
