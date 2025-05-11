@@ -1,7 +1,7 @@
-import { CompaniesLogoPaths ,SecondCompaniesLogoPaths} from "../../../../assets/Global_Need_files/ImagesPaths";
+import { CompaniesLogoPaths, SecondCompaniesLogoPaths } from "../../../../assets/Global_Need_files/ImagesPaths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { CompaniesContainer, OuterSliderComCover, SingleCompanyComp,CompaniesContainerSec} from "./CompaniesSliderStyles";
+import { CompaniesContainer, OuterSliderComCover, SingleCompanyComp, CompaniesContainerSec } from "./CompaniesSliderStyles";
 import "./CompaniesSlider.css"
 export function CompaniesHelpSlider() {
     const CompaniesEntries = Object.entries(CompaniesLogoPaths);
@@ -12,9 +12,10 @@ export function CompaniesHelpSlider() {
             <div className="CompaniesComTitle">
                 <p>Companies We've Helped</p>
             </div>
-            <OuterSliderComCover>
-                <CompaniesContainer >
-                    {CompaniesEntries.map(([companyName, logoPath], index) => (
+            <div class="wholeCompWrapper">
+                <OuterSliderComCover>
+                    <CompaniesContainer >
+                        {CompaniesEntries.map(([companyName, logoPath], index) => (
                             <SingleCompanyComp key={index}>
 
                                 <img
@@ -25,9 +26,9 @@ export function CompaniesHelpSlider() {
                             </SingleCompanyComp>
 
                         ))}
-                </CompaniesContainer>
-                <CompaniesContainer >
-                    {CompaniesEntries.map(([companyName, logoPath], index) => (
+                    </CompaniesContainer>
+                    <CompaniesContainer >
+                        {CompaniesEntries.map(([companyName, logoPath], index) => (
                             <SingleCompanyComp key={index}>
 
                                 <img
@@ -38,12 +39,12 @@ export function CompaniesHelpSlider() {
                             </SingleCompanyComp>
 
                         ))}
-                </CompaniesContainer>
+                    </CompaniesContainer>
 
-            </OuterSliderComCover>
-            <OuterSliderComCover>
-                <CompaniesContainerSec >
-                    {SecondlistEntries.map(([companyName, logoPath], index) => (
+                </OuterSliderComCover>
+                <OuterSliderComCover>
+                    <CompaniesContainerSec >
+                        {SecondlistEntries.map(([companyName, logoPath], index) => (
                             <SingleCompanyComp key={index}>
 
                                 <img
@@ -54,9 +55,9 @@ export function CompaniesHelpSlider() {
                             </SingleCompanyComp>
 
                         ))}
-                </CompaniesContainerSec>
-                <CompaniesContainerSec >
-                    {SecondlistEntries.map(([companyName, logoPath], index) => (
+                    </CompaniesContainerSec>
+                    <CompaniesContainerSec >
+                        {SecondlistEntries.map(([companyName, logoPath], index) => (
                             <SingleCompanyComp key={index}>
 
                                 <img
@@ -67,9 +68,10 @@ export function CompaniesHelpSlider() {
                             </SingleCompanyComp>
 
                         ))}
-                </CompaniesContainerSec>
-                
-            </OuterSliderComCover>
+                    </CompaniesContainerSec>
+
+                </OuterSliderComCover>
+            </div>
 
         </>
     );

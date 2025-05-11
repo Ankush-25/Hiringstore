@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const UpperSearchAndTextWrapper = styled.div`
     width: 100%;
-    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
     color: white;
 `
 

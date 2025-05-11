@@ -3,6 +3,7 @@
     height: 27px;
     display: flex;
     align-items: center;
+    padding: 10px;
 }
 .SearchIcon{
     font-size: 26px;

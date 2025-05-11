@@ -58,5 +58,5 @@ export const Footerfunctions = [
   { name: "Browse Jobs", path: "/jobs" },
   { name: "Post a Job", path: "/employer/post-job" },
   { name: "Companies", path: "/companies" },
-  { name: "Career Advice", path: "/career-advice" }
+  { name: "Career", path: "/career" }
 ];
