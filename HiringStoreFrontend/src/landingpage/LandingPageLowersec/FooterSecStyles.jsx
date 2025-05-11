@@ -1,8 +1,29 @@
 import styled from "styled-components"
 
 export const FooterWrapper = styled.div`
-    border: red solid;
-    border-radius: 10px;
+    border: grey 1px solid;
+    padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background:211f1f;
+
+    align-content: center;
+}
+`
+export const FooterColumnWrapper = styled.div`
+    display: flex;
+    padding: 20px;
+    flex-direction: Column;
+    
+`
+export const SingleRowFooterLink = styled.a`
+    text-decoration: none;
+    font-size: 1rem;
+    padding:10px;
+    color: white;
+    &hover:{
+    color: grey;
+    text-decoration: underline;
+    }
 `

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./UpperSection.css"
 import { useState } from "react";
-import { Searchplaceholders } from "../../Var";
+import { Searchplaceholders } from "../../../Var";
 
 
 

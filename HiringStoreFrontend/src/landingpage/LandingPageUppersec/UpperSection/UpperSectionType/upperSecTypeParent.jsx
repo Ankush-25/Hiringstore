@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { popularJobDesignations } from '../../Var.jsx';
+import { popularJobDesignations } from '../../../Var.jsx';
 import { JobBoxWrapper, SingleJobBoxCon } from './UpperSecTypeStyles.jsx';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import "./upperSecType.css"

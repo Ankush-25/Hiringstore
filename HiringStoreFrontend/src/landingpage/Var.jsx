@@ -45,3 +45,18 @@ export const popularJobDesignations = {
 // "Customer Support ",
 //     "UI/UX ",
 //     "Project Manager",
+
+export const Footerfunctions = [
+  { name: "About Us", path: "/about" },
+  { name: "Contact", path: "/contact" },
+  { name: "Privacy Policy", path: "/privacy-policy" },
+  { name: "Terms of Service", path: "/terms-of-service" },
+  { name: "Blog", path: "/blog" },
+  { name: "FAQs", path: "/faqs" },
+  { name: "Sitemap", path: "/sitemap" },
+  { name: "Help Center", path: "/help" },
+  { name: "Browse Jobs", path: "/jobs" },
+  { name: "Post a Job", path: "/employer/post-job" },
+  { name: "Companies", path: "/companies" },
+  { name: "Career", path: "/career" }
+];
