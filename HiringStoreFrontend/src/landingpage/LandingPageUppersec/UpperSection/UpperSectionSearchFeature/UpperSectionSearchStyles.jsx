@@ -12,6 +12,7 @@ export const SearchBar = styled.div`
     border-radius: 34px;
     display: flex;
     background: white;
+    font-size: 32px;
     padding: 8px;
     margin: auto;
     align-items: center;

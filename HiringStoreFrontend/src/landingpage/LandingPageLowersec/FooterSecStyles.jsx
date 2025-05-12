@@ -1,15 +1,13 @@
 import styled from "styled-components"
 
 export const FooterWrapper = styled.div`
-    border: grey 1px solid;
+    border-top: grey 1px solid;
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
     flex-wrap: wrap;
-    background:211f1f;
-
-    align-content: center;
-}
+    align-items: center;
 `
 export const FooterColumnWrapper = styled.div`
     display: flex;
