@@ -4,7 +4,7 @@ import { Imagepaths } from "../../../../assets/Global_Need_files/ImagesPaths";
 import "./navbar.css"
 
 export function LandingNavBar() {
-    const TopMenusArray = Object.values(TopMenus)
+    const TopMenusArray = Object.entries(TopMenus)
     
     return (
         <NavbarContainer >
@@ -12,10 +12,10 @@ export function LandingNavBar() {
                 <img  className="logoModification" src={Imagepaths.HiringstoreslogoPath} alt="Hiring Stores Logo" />
             </LogoIcon>
             <MenuBarContainer>
-                {TopMenusArray.map((menu, index) => (
+                {TopMenusArray.map(([index, menu]) => (
                     <div className="ComCrouselOuter">
-                        <MenuBoxContainer key={index}>
-                            {menu}
+                        <MenuBoxContainer to={menu.path} key={index}>
+                            {menu.label}
                         </MenuBoxContainer>
                     </div>
                 ))}

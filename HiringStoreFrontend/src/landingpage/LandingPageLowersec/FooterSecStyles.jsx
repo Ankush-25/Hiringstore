@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export const FooterWrapper = styled.div`
     border-top: grey 1px solid;
-    padding: 10px;
+    padding-top: 10px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -15,7 +16,7 @@ export const FooterColumnWrapper = styled.div`
     flex-direction: Column;
     
 `
-export const SingleRowFooterLink = styled.a`
+export const SingleRowFooterLink = styled(Link)`
     text-decoration: none;
     font-size: 1rem;
     padding:10px;

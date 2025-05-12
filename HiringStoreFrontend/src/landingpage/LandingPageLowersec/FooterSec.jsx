@@ -22,8 +22,10 @@ export function Footerbody() {
         <SingleFooterColumn footerfunctionArray={footerfunctionFirst} />
       </div>
       <div class="copyrightpart">
-        <p>&copy; All rights are reserved to Vigyapanam.pvt.ltd</p>
-        <p>(2021-2025)</p>
+        <p className="copyright-years">
+          &copy; All rights are reserved to Vigyapanam.pvt.ltd{" "}
+          <span>(2021-2025)</span>
+        </p>
       </div>
     </FooterWrapper>
   );
@@ -33,8 +35,7 @@ export function SingleFooterColumn({ footerfunctionArray }) {
   return (
     <FooterColumnWrapper>
       {footerfunctionArray.map(([index, item]) => (
-        <SingleRowFooterLink href={item.path} key={index}>
-          {" "}
+        <SingleRowFooterLink to={item.path} key={index}>
           {item.name}
         </SingleRowFooterLink>
       ))}
