@@ -1,0 +1,13 @@
+.HerosecTextLines{
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    line-height: 10px;
+    font-size: 1.5rem;
+    
+}
+.HerosecButtons{
+    display: flex;
+    width: 35%;
+    gap: 20px;
+}

@@ -5,8 +5,6 @@ import "./UpperSection.css"
 import { useState } from "react";
 import { Searchplaceholders } from "../../../Var";
 
-
-
 export function UpperSectionSearch() {
 
   const [SearchValues, setSearchValues] = useState(['', '', ''])

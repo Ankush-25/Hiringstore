@@ -7,6 +7,7 @@ import Blogs from "./Blogs/Blogs";
 import Error404 from "./Error404";
 import AboutUs from "./aboutPage/AboutUs";
 import Login from "./login/Login";
+import AppDashboard from "./App/AppDashboard";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/*" element ={<Error404/>}/>
+        <Route path="/app" element={<AppDashboard/>}/>
         // {/*<Route path="/Career" element={<LandingPageParent />} />
         // <Route path="/privacy-policy" element={<LandingPageParent />} />
         // <Route path="/contact-Us" element={<LandingPageParent />} />
