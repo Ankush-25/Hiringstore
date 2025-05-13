@@ -8,13 +8,13 @@ import {
   faPeopleRoof
 } from '@fortawesome/free-solid-svg-icons';
 
-export const TopMenus = {
-    Home: 'Home',
-    Login: 'login',
-    Sign_Up: 'Sign Up',
-    About_Us: 'About Us',
-    Blogs: 'Blogs'
-}
+export const TopMenus = [
+    { label: 'Home', path: '/' },
+    { label: 'Login', path: '/login' },
+    { label: 'Sign Up', path: '/signup' },
+    { label: 'About Us', path: '/aboutUs' },
+    { label: 'Blogs', path: '/blogs' }
+];
 
 //SearchBar
 
@@ -39,19 +39,19 @@ export const popularJobDesignations = {
     Marketing:<FontAwesomeIcon icon={faBullhorn} />,
     Banking: <FontAwesomeIcon icon={faBuildingColumns} />,
     "Ops Manager": <FontAwesomeIcon icon={faClipboardList} />,
-    HR: <FontAwesomeIcon icon="fa-solid fa-people-roof" />
+    HR: <FontAwesomeIcon icon={faPeopleRoof} />
   };
 
-// "Customer Support ",
-//     "UI/UX ",
-//     "Project Manager",
+//    "Customer Support ",
+//       "UI/UX ",
+//    "Project Manager",
 
 export const Footerfunctions = [
   { name: "About Us", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  { name: "Contact-Us", path: "/contact-us" },
   { name: "Privacy Policy", path: "/privacy-policy" },
   { name: "Terms of Service", path: "/terms-of-service" },
-  { name: "Blog", path: "/blog" },
+  { name: "Blogs", path: "/blogs" },
   { name: "FAQs", path: "/faqs" },
   { name: "Sitemap", path: "/sitemap" },
   { name: "Help Center", path: "/help" },

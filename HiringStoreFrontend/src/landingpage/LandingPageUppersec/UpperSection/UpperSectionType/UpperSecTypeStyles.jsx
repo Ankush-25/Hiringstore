@@ -18,6 +18,8 @@ export const SingleJobBoxCon = styled.div`
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
   &:hover{
-box-shadow: 0px 0px 40px rgb(176 176 176);    cursor: pointer;
+    box-shadow: 0px 0px 40px rgb(176 176 176); 
+    cursor: pointer;
+    transform: scale(1.1)
   }
 `

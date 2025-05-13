@@ -1,15 +1,14 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export const FooterWrapper = styled.div`
-    border: grey 1px solid;
-    padding: 10px;
+    border-top: grey 1px solid;
+    padding-top: 10px;
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
     flex-wrap: wrap;
-    background:211f1f;
-
-    align-content: center;
-}
+    align-items: center;
 `
 export const FooterColumnWrapper = styled.div`
     display: flex;
@@ -17,7 +16,7 @@ export const FooterColumnWrapper = styled.div`
     flex-direction: Column;
     
 `
-export const SingleRowFooterLink = styled.a`
+export const SingleRowFooterLink = styled(Link)`
     text-decoration: none;
     font-size: 1rem;
     padding:10px;
