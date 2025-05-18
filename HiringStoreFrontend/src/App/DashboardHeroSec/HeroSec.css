@@ -11,3 +11,6 @@
     width: 35%;
     gap: 20px;
 }
+.JobtypeOuter{
+    border-top : 1px grey solid;
+}

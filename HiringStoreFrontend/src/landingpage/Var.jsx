@@ -60,3 +60,60 @@ export const Footerfunctions = [
   { name: "Companies", path: "/companies" },
   { name: "Career", path: "/career" }
 ];
+
+// this data should have to remove after some time creating after the backend
+export const recommendedJobs = {
+  role: "Software Developer",
+  recommended: [
+    {
+      title: "Senior Frontend Developer",
+      company: "TechNova Inc.",
+      location: "Remote"
+    },
+    {
+      title: "Full Stack Engineer",
+      company: "Innovate Labs",
+      location: "San Francisco, CA (Hybrid)"
+    },
+    {
+      title: "Backend Developer (Node.js)",
+      company: "CloudSync",
+      location: "Remote"
+    },
+    {
+      title: "React Developer",
+      company: "BrightPixel",
+      location: "Austin, TX"
+    },
+    {
+      title: "Software Engineer",
+      company: "CodeCrafters",
+      location: "New York, NY"
+    },
+    {
+      title: "Frontend Engineer",
+      company: "NextGen Web",
+      location: "Seattle, WA (Hybrid)"
+    },
+    {
+      title: "Platform Engineer",
+      company: "SkyNet Solutions",
+      location: "Chicago, IL"
+    },
+    {
+      title: "JavaScript Developer",
+      company: "DevVerse",
+      location: "Remote"
+    },
+    {
+      title: "Web Application Developer",
+      company: "CloudBridge",
+      location: "Denver, CO"
+    },
+    {
+      title: "Senior Software Engineer",
+      company: "BitLogic",
+      location: "Remote"
+    }
+  ]
+};
