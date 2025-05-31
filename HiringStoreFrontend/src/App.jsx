@@ -11,23 +11,33 @@ import AppDashboard from "./App/AppDashboard";
 
 function App() {
   return (
-    <BrowserRouter> 
-      <LandingNavBar />
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPageParent />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/Blogs" element={<Blogs/>} />
-        <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/*" element ={<Error404/>}/>
-        <Route path="/app" element={<AppDashboard/>}/>
-        // {/*<Route path="/Career" element={<LandingPageParent />} />
-        // <Route path="/privacy-policy" element={<LandingPageParent />} />
-        // <Route path="/contact-Us" element={<LandingPageParent />} />
-        // <Route path="/Browse_Jobs" element={<LandingPageParent />} />
-        // <Route path="/" element={<LandingPageParent />} /> */}
+        <Route
+          path="*"
+          element={
+            <>
+              <LandingNavBar />
+              <Routes>
+                <Route path="/" element={<LandingPageParent />} />
+                <Route path="/signUp" element={<SignUp />} />
+                <Route path="/Blogs" element={<Blogs />} />
+                <Route path="/aboutUs" element={<AboutUs />} />
+                <Route path="/*" element={<Error404 />} />
+                <Route path="/app" element={<AppDashboard />} />
+                //{" "}
+                {/*<Route path="/Career" element={<LandingPageParent />} />
+              // <Route path="/privacy-policy" element={<LandingPageParent />} />
+              // <Route path="/contact-Us" element={<LandingPageParent />} />
+              // <Route path="/Browse_Jobs" element={<LandingPageParent />} />
+              // <Route path="/" element={<LandingPageParent />} /> */}
+              </Routes>
+              <Footerbody />
+            </>
+          }
+        />
       </Routes>
-      <Footerbody />
     </BrowserRouter>
   );
 }
