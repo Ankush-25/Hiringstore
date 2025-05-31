@@ -8,7 +8,7 @@ function AppDashboard() {
       <div class="JobtypeOuter">
         <PopularJobtype />
       </div>
-      <div class="crouselTitle">Jobs</div>
+      <div class="crouselTitle">Jobs For You</div>
       <RecomendedJobsCrousel />
     </>
   );

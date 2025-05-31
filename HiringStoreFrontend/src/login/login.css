@@ -1,0 +1,91 @@
+.LoginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #211f1f;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.LoginForm {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.FormGroup label {
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 500;
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    padding: 0 0.3rem;
+    pointer-events: none;
+    transition: color 0.2s, font-size 0.2s, top 0.2s;
+    z-index: 2;
+    background: #211f1f; /* Match the form background to cover the border */
+}
+
+.FormGroup input:focus + label,
+.FormGroup input:not(:placeholder-shown) + label {
+  color: #10a37f;
+  font-size: 0.9rem;
+  top: -1.2rem;
+}
+
+.FormGroup input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  background-color: #0000;
+
+  border-radius: 8px;
+  font-size: 1.5rem;
+  background: #f7fafc;
+  outline: none;
+}
+.LoginForm {
+  background: #0000;
+  border: 1.5px solid #fff;
+  backdrop-filter: blur(8px);
+}
+.FormGroup input:focus {
+  border-color: rgb(183, 97, 183);
+  background: #fff;
+}
+
+.LoginButton {
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, rgb(183, 97, 183) 0%, #2d8fff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.LoginButton:hover,
+.LoginButton:focus {
+  background: linear-gradient(90deg, rgb(183, 97, 183) 0%, #0c4586 100%);
+}

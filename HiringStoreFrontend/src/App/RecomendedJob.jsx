@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { recommendedJobs } from "../landingpage/Var";
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 function NextArrow(props) {
   const { className, style, onClick } = props;
@@ -27,33 +27,12 @@ function PreviousArrow(props) {
     />
   );
 }
-
-// function NextArrow(props) {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block"}}
-//       onClick={onClick}
-//     />
-//   );
-// }
-// function PreviousArrow(props) {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block",}}
-//       onClick={onClick}
-//     />
-//   );
-// }
 export function ItemsCrousel({ CrouselData, CrouselComp }) {
   var settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     prevArrow: <PreviousArrow />,
@@ -86,9 +65,9 @@ export function ItemsCrousel({ CrouselData, CrouselComp }) {
     ],
   };
   const crouselRawdata = Object.entries(CrouselData);
-  console.log(crouselRawdata);
   const CrouselItem = crouselRawdata[0][1];
-  console.log(CrouselItem);
+  
+  
 
   return (
     <div className="sliderContainer">
@@ -107,18 +86,28 @@ export function ItemsCrousel({ CrouselData, CrouselComp }) {
 }
 
 export function CrouselComp({ title, company, location }) {
+  const HandleApplyclick = () => {
+    return null;
+  };
   return (
-    <div className="singleCrouselDiv">
-      <div> Job Role: {title} </div>
-      <div> Company: {company} </div>
-      <div> Location: {location} </div>
+    <div className="singleCrouselContainer">
+      <div className="singleCrouselDiv">
+        <div> Job Role: {title} </div>
+        <div> Company: {company} </div>
+        <div> Location: {location} </div>
+      </div>
+      <div className="ApplyButtonContainer">
+        <button className="ApplyButton" onClick={HandleApplyclick}>
+          <FontAwesomeIcon icon={faUpRightFromSquare} />
+        </button>
+      </div>
     </div>
   );
 }
 
 export default function RecomendedJobsCrousel() {
   return (
-    <div>
+    <div className="jobsSecContainer">
       <ItemsCrousel CrouselData={recommendedJobs} CrouselComp={CrouselComp} />
     </div>
   );
