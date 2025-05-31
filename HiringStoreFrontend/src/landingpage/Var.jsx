@@ -63,57 +63,130 @@ export const Footerfunctions = [
 
 // this data should have to remove after some time creating after the backend
 export const recommendedJobs = {
-  role: "Software Developer",
-  recommended: [
+  data: [
     {
+      _id: "1",
       title: "Senior Frontend Developer",
       company: "TechNova Inc.",
       location: "Remote"
     },
     {
-      title: "Full Stack Engineer",
-      company: "Innovate Labs",
-      location: "San Francisco, CA (Hybrid)"
-    },
-    {
-      title: "Backend Developer (Node.js)",
-      company: "CloudSync",
+      _id: "2",
+      title: "Machine Learning Engineer",
+      company: "DataWorks",
       location: "Remote"
     },
     {
-      title: "React Developer",
-      company: "BrightPixel",
-      location: "Austin, TX"
+      _id: "3",
+      title: "Cloud Infrastructure Engineer",
+      company: "DeployNow",
+      location: "Remote"
     },
     {
-      title: "Software Engineer",
-      company: "CodeCrafters",
+      _id: "4",
+      title: "Product Designer",
+      company: "DesignPro",
       location: "New York, NY"
     },
     {
-      title: "Frontend Engineer",
-      company: "NextGen Web",
-      location: "Seattle, WA (Hybrid)"
+      _id: "5",
+      title: "Backend Developer",
+      company: "CodeBase",
+      location: "Austin, TX"
     },
     {
-      title: "Platform Engineer",
-      company: "SkyNet Solutions",
-      location: "Chicago, IL"
+      _id: "6",
+      title: "Full Stack Developer",
+      company: "StackWorks",
+      location: "San Francisco, CA"
     },
     {
-      title: "JavaScript Developer",
-      company: "DevVerse",
+      _id: "7",
+      title: "DevOps Engineer",
+      company: "InfraEdge",
+      location: "Seattle, WA"
+    },
+    {
+      _id: "8",
+      title: "React Developer",
+      company: "UIForge",
       location: "Remote"
     },
     {
-      title: "Web Application Developer",
-      company: "CloudBridge",
+      _id: "9",
+      title: "Frontend Engineer",
+      company: "WebCore",
       location: "Denver, CO"
     },
     {
-      title: "Senior Software Engineer",
-      company: "BitLogic",
+      _id: "10",
+      title: "Software Engineer",
+      company: "AlgoSoft",
+      location: "Chicago, IL"
+    },
+    {
+      _id: "11",
+      title: "Node.js Developer",
+      company: "ServerStack",
+      location: "Remote"
+    },
+    {
+      _id: "12",
+      title: "iOS Developer",
+      company: "AppVantage",
+      location: "Boston, MA"
+    },
+    {
+      _id: "13",
+      title: "Android Developer",
+      company: "MobileNext",
+      location: "San Diego, CA"
+    },
+    {
+      _id: "14",
+      title: "QA Engineer",
+      company: "BugCatchers",
+      location: "Phoenix, AZ"
+    },
+    {
+      _id: "15",
+      title: "Tech Lead",
+      company: "LeadLogic",
+      location: "Remote"
+    },
+    {
+      _id: "16",
+      title: "UI Engineer",
+      company: "PixelPush",
+      location: "Miami, FL"
+    },
+    {
+      _id: "17",
+      title: "Security Analyst",
+      company: "SecureWave",
+      location: "Atlanta, GA"
+    },
+    {
+      _id: "18",
+      title: "Cloud Engineer",
+      company: "SkyTech",
+      location: "Remote"
+    },
+    {
+      _id: "19",
+      title: "Data Analyst",
+      company: "InsightHub",
+      location: "Philadelphia, PA"
+    },
+    {
+      _id: "20",
+      title: "Solutions Architect",
+      company: "TechBridge",
       location: "Remote"
     }
   ]
 };
+
+
+
+

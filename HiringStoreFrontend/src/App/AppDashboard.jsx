@@ -1,4 +1,3 @@
-import React from "react";
 import HeroSection from "./DashboardHeroSec/HeroSecDashboard";
 import { PopularJobtype } from "../landingpage/LandingPageUppersec/UpperSection/UpperSectionType/upperSecTypeParent";
 import RecomendedJobsCrousel from "./RecomendedJob";
@@ -9,6 +8,7 @@ function AppDashboard() {
       <div class="JobtypeOuter">
         <PopularJobtype />
       </div>
+      <div class="crouselTitle">Jobs</div>
       <RecomendedJobsCrousel />
     </>
   );

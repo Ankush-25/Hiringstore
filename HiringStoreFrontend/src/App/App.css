@@ -1,0 +1,46 @@
+.sliderContainer{
+    width: 86%;
+    padding-left: 8%;
+    padding-bottom: 100px;
+}
+.custom-arrow {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #b761b7;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-arrow:hover {
+  background-color: #f0f0f0;
+}
+.prev-arrow {
+  left: -50px;
+}
+.next-arrow {
+  right: 20px;
+}
+.slick-next:before{
+    color: black;
+    font-size: 1.5rem;
+    font-size: 3rem;
+    margin-top: -15px;
+}
+.slick-prev:before{
+    color: black;
+    font-size: 1.5rem;
+    font-size: 3rem;
+    margin-top: -15px;
+}
+.crouselTitle{
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0 50px 0;
+}
