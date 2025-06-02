@@ -1,6 +1,4 @@
 import { CompaniesLogoPaths, SecondCompaniesLogoPaths } from "../../../../assets/Global_Need_files/ImagesPaths";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CompaniesContainer, OuterSliderComCover, SingleCompanyComp, CompaniesContainerSec } from "./CompaniesSliderStyles";
 import "./CompaniesSlider.css"
 export function CompaniesHelpSlider() {

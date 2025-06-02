@@ -1,8 +1,10 @@
 .LoginContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  gap: 30px;
   background: #211f1f;
   font-family: "Inter", Arial, sans-serif;
 }
@@ -43,7 +45,7 @@
   pointer-events: none;
   transition: color 0.2s, font-size 0.2s, top 0.2s;
   z-index: 2;
-  background: #211f1f; 
+  background: #211f1f;
 }
 
 .FormGroup input:focus + label,
@@ -87,4 +89,35 @@
 .LoginButton:hover,
 .LoginButton:focus {
   background: linear-gradient(90deg, rgb(183, 97, 183) 0%, #0c4586 100%);
+}
+.imagelogo {
+  height: 100px;
+}
+.topSectionLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#txtWelcome {
+  font-size: 2rem;
+}
+#signupTxturl {
+  margin-left: 4px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(183, 97, 183);
+}
+
+#signupTxturl:hover {
+  color: #0c4586;
+}
+
+#signupTxturl:hover {
+ 
+   color:#0c4586
+}
+
+.signUp{
+  font-size: 1.3rem;
 }
