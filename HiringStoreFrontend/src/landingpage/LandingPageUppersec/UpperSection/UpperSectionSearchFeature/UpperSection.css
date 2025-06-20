@@ -12,6 +12,7 @@
 }
 
 .Tagline{
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     padding-bottom: 31px;
@@ -21,4 +22,16 @@
     color: #635555;
     margin-left: 5px;
     margin-right: 5px;
+}
+.internshipsCrouselcontainer{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+.internshiptxt{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 30px;
 }

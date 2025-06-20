@@ -4,6 +4,7 @@ export const JobBoxWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 60%;
+  padding-bottom:100px;
   margin: auto;
 `;
 export const SingleJobBoxCon = styled.div`

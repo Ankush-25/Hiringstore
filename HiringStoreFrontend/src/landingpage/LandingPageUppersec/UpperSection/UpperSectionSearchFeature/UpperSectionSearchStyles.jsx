@@ -5,6 +5,7 @@ export const UpperSearchAndTextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding-top: 50px;
+    padding-bottom:100px;
     color: white;
 `
 

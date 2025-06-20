@@ -1,8 +1,8 @@
-import React from "react";
+import Login from "../login/Login";
+
 function SignUp() {
   return(
-
-  <h1>SignUpcomp is here</h1>
+    <Login signing={true}/>
   )
 }
 export default SignUp;

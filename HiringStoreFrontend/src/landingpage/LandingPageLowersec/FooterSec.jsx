@@ -14,20 +14,22 @@ export function Footerbody() {
   const footerfunctionFirst = footerfunction.slice(8, 12);
 
   return (
-    <FooterWrapper>
-      <div class="outerCover">
-        <FooterSecLogo />
-        <SingleFooterColumn footerfunctionArray={footerfunctionlast} />
-        <SingleFooterColumn footerfunctionArray={footerfunctionMid} />
-        <SingleFooterColumn footerfunctionArray={footerfunctionFirst} />
-      </div>
-      <div class="copyrightpart">
-        <p className="copyright-years">
-          &copy; All rights are reserved to Vigyapanam.pvt.ltd{" "}
-          <span>(2021-2025)</span>
-        </p>
-      </div>
-    </FooterWrapper>
+    <div className="footercontainer">
+      <FooterWrapper>
+        <div class="outerCover">
+          <FooterSecLogo />
+          <SingleFooterColumn footerfunctionArray={footerfunctionlast} />
+          <SingleFooterColumn footerfunctionArray={footerfunctionMid} />
+          <SingleFooterColumn footerfunctionArray={footerfunctionFirst} />
+        </div>
+        <div class="copyrightpart">
+          <p className="copyright-years">
+            &copy; All rights are reserved to Vigyapanam.pvt.ltd{" "}
+            <span>(2021-2025)</span>
+          </p>
+        </div>
+      </FooterWrapper>
+    </div>
   );
 }
 
