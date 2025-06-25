@@ -14,19 +14,18 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/signUp" element={<SignUp />}/>
         <Route
           path="*"
           element={
             <>
               <LandingNavBar />
               <Routes>
-                <Route path="/" element={<LandingPageParent />} />
-                <Route path="/signUp" element={<SignUp />} />
-                <Route path="/Blogs" element={<Blogs />} />
-                <Route path="/aboutUs" element={<AboutUs />} />
-                <Route path="/*" element={<Error404 />} />
-                <Route path="/app" element={<AppDashboard />} />
-                //{" "}
+                <Route path="/" element={<LandingPageParent />}/>
+                <Route path="/Blogs" element={<Blogs />}/>
+                <Route path="/aboutUs" element={<AboutUs />}/>
+                <Route path="/*" element={<Error404 />}/>
+                <Route path="/app" element={<AppDashboard />}/>
                 {/*<Route path="/Career" element={<LandingPageParent />} />
               // <Route path="/privacy-policy" element={<LandingPageParent />} />
               // <Route path="/contact-Us" element={<LandingPageParent />} />
