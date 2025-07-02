@@ -65,6 +65,7 @@ function Login({ signing }) {
           Login
         </button>
       </form>
+      <a href="/Reset-password" style={{color: "Red"}} >Forgot Password</a>
       {!signing && (
         <div className="signUp">
           <p className="SignupTxt">
@@ -75,7 +76,9 @@ function Login({ signing }) {
             </a>
           </p>
         </div>
+          
       )}
+      
     </div>
   );
 }
