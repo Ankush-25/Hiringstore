@@ -1,9 +1,13 @@
+const {model} = require("mongoose");
 const { Schema } = require("mongoose");
 const ProfileSchema = new Schema({
-
-  fullName: {
+  username: {
     type: String,
     required: true,
+    unique: true
+  },
+  fullName: {
+    type: String,
     trim: true
   },
   email: {
@@ -16,8 +20,8 @@ const ProfileSchema = new Schema({
     type: String,
     required: true
   }
-
 });
 
-module.exports = { ProfileSchema };
-qq
+const User = new model("profile", ProfileSchema);
+
+module.exports={User};
