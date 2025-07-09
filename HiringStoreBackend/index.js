@@ -34,3 +34,4 @@ function startServer() {
     console.log("The Application is Started at",PORT);
   });
 }
+startServer();
