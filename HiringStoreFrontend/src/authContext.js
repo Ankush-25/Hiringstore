@@ -5,9 +5,8 @@ const useAuth = ()=>(
    useContext(AuthContext)
 )
 const AuthProvider= ({Children})=>{
-
+    const [currentUser, setCurrentUser] = useState(null);
     useEffect(()=>{
-        const [currentUser, setCurrentUser] = useState(null);
         const UserId = localStorage.getItem('userId');
         if(UserId){
            setCurrentUser(UserId);
