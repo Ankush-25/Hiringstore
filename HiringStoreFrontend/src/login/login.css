@@ -5,12 +5,10 @@
   align-items: center;
   min-height: 100vh;
   gap: 30px;
-  background: #211f1f;
   font-family: "Inter", Arial, sans-serif;
 }
 
 .LoginForm {
-  background: #fff;
   padding: 3rem;
   border-radius: 12px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
@@ -48,8 +46,8 @@
   background: #211f1f;
 }
 
-.FormGroup input:focus + label,
-.FormGroup input:not(:placeholder-shown) + label {
+.FormGroup input:focus+label,
+.FormGroup input:not(:placeholder-shown)+label {
   color: #10a37f;
   font-size: 0.9rem;
   top: -1.2rem;
@@ -64,11 +62,13 @@
   background: #f7fafc;
   outline: none;
 }
+
 .LoginForm {
-  background: #0000;
+  background: rgb(33, 31, 31);
   border: 1.5px solid #fff;
   backdrop-filter: blur(8px);
 }
+
 .FormGroup input:focus {
   border-color: rgb(183, 97, 183);
   background: #fff;
@@ -90,18 +90,22 @@
 .LoginButton:focus {
   background: linear-gradient(90deg, rgb(183, 97, 183) 0%, #0c4586 100%);
 }
+
 .imagelogo {
   height: 100px;
 }
+
 .topSectionLogin {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 #txtWelcome {
   font-size: 2rem;
 }
+
 #signupTxturl {
   margin-left: 4px;
   text-decoration: underline;
@@ -114,10 +118,10 @@
 }
 
 #signupTxturl:hover {
- 
-   color:#0c4586
+
+  color: #0c4586
 }
 
-.signUp{
+.signUp {
   font-size: 1.3rem;
 }

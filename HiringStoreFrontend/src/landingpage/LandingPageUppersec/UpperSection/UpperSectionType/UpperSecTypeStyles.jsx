@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const JobBoxWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 80%;
   padding-bottom:100px;
   margin: auto;
 `;
