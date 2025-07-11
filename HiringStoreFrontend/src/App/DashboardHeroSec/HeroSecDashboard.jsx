@@ -8,8 +8,14 @@ import "./HeroSec.css";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PopularJobtype } from "../../landingpage/LandingPageUppersec/UpperSection/UpperSectionType/upperSecTypeParent";
+
+
 function HeroSection() {
-  const handleNavigation = 23;
+  const handleNavigation = async () =>(
+    window.location.href = "/app/JobPost"
+  )
+
+
   return (
     <HeroSecWrapper>
       <HeroSecbuttonCon>

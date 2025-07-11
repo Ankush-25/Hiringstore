@@ -27,6 +27,7 @@ function App() {
                 <Route path="/aboutUs" element={<AboutUs />}/>
                 <Route path="/*" element={<Error404 />}/>
                 <Route path="/app" element={<AppDashboard />}/>
+                {/* <Route path="/app/JobPost" element={<AppDashboard />}/> */}
                 {/*<Route path="/Career" element={<LandingPageParent />} />
               // <Route path="/privacy-policy" element={<LandingPageParent />} />
               // <Route path="/contact-Us" element={<LandingPageParent />} />
