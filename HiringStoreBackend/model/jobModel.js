@@ -55,6 +55,13 @@ const jobSchema = new mongoose.Schema({
     isActive: {
         type: Boolean,
         default: true
+    },
+    Vacancies:{
+        type: Number,
+    },
+    deadline: {
+        type: Date,
+        required: false
     }
 });
 const Job = mongoose.model('Job', jobSchema);
