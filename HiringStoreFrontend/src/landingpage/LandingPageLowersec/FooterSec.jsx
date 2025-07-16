@@ -16,13 +16,13 @@ export function Footerbody() {
   return (
     <div className="footercontainer">
       <FooterWrapper>
-        <div class="outerCover">
+        <div className="outerCover">
           <FooterSecLogo />
           <SingleFooterColumn footerfunctionArray={footerfunctionlast} />
           <SingleFooterColumn footerfunctionArray={footerfunctionMid} />
           <SingleFooterColumn footerfunctionArray={footerfunctionFirst} />
         </div>
-        <div class="copyrightpart">
+        <div className="copyrightpart">
           <p className="copyright-years">
             &copy; All rights are reserved to Vigyapanam.pvt.ltd{" "}
             <span>(2021-2025)</span>
@@ -46,9 +46,9 @@ export function SingleFooterColumn({ footerfunctionArray }) {
 }
 export function FooterSecLogo() {
   return (
-    <div class="Logodiv">
+    <div className="Logodiv">
       <img
-        class="ImageFooterSec"
+        className="ImageFooterSec"
         src={Imagepaths.HiringstoreslogoPath}
         alt="Hiring Store"
       />

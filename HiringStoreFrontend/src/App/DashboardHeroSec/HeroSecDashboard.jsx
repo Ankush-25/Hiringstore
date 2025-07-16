@@ -19,11 +19,11 @@ function HeroSection() {
   return (
     <HeroSecWrapper>
       <HeroSecbuttonCon>
-        <div class="HerosecTextLines">
+        <div className="HerosecTextLines">
           <h1>Begin Your Journey</h1>
           <p>Apply from Here and Get Hired</p>
         </div>
-        <div class="HerosecButtons">
+        <div className="HerosecButtons">
           <HerSecButtons onClick={handleNavigation}>Find Jobs</HerSecButtons>
           <HerSecButtons onClick={handleNavigation}>
             <FontAwesomeIcon icon={faPlus} style={{ marginRight: "8px" }} />

@@ -64,10 +64,8 @@ export function ItemsCrousel({ CrouselData, CrouselComp }) {
       },
     ],
   };
-  const crouselRawdata = Object.entries(CrouselData);
-  const CrouselItem = crouselRawdata[0][1];
-  
-  
+
+  const CrouselItem = Array.isArray(CrouselData) ? CrouselData : [];
 
   return (
     <div className="sliderContainer">

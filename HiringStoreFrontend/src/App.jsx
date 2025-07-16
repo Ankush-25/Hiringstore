@@ -29,7 +29,7 @@ function App() {
                 <Route path="/app" element={<AppDashboard />}/>
                 {/* <Route path="/app/JobPost" element={<AppDashboard />}/> */}
                 {/*<Route path="/Career" element={<LandingPageParent />} />
-              // <Route path="/privacy-policy" element={<LandingPageParent />} />
+              // <Route path="/privacy-policy" element={<LandingPage/>} />
               // <Route path="/contact-Us" element={<LandingPageParent />} />
               // <Route path="/Browse_Jobs" element={<LandingPageParent />} />
               // <Route path="/" element={<LandingPageParent />} /> */}

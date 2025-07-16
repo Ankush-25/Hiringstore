@@ -5,10 +5,10 @@ function AppDashboard() {
   return (
     <>
       <HeroSection />
-      <div class="JobtypeOuter">
+      <div className="JobtypeOuter">
         <PopularJobtype />
       </div>
-      <div class="crouselTitle">Jobs For You</div>
+      <div className="crouselTitle">Jobs For You</div>
       <RecomendedJobsCrousel />
     </>
   );

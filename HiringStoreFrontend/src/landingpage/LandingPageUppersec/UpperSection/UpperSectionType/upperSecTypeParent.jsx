@@ -5,12 +5,11 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import "./upperSecType.css"
 export function PopularJobtype() {
     const jobBoxes = Object.entries(popularJobDesignations);
-    console.log(jobBoxes)
 
 
     return (
         <div className='tobjobcontainer'>
-            <div class="topJobs">
+            <div className="topJobs">
                 Popular Sectors
             </div>
             <JobBoxWrapper>
@@ -30,10 +29,10 @@ export function PopularJobtype() {
 export function SingleJobBox({ designation, desigLogo }) {
     return (
         <SingleJobBoxCon>
-            <div class="singlejobdesign">
+            <div className="singlejobdesign">
                 {desigLogo}
                 {designation}
-                <div class='iconContainer'>
+                <div className='iconContainer'>
                     <FontAwesomeIcon icon={faChevronRight} />
                 </div>
             </div>
