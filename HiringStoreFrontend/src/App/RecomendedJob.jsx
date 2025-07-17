@@ -4,8 +4,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { recommendedJobs } from "../landingpage/Var";
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faUpRightFromSquare,
+  faBuilding,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
 function NextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -64,39 +67,50 @@ export function ItemsCrousel({ CrouselData, CrouselComp }) {
       },
     ],
   };
-
-  const CrouselItem = Array.isArray(CrouselData) ? CrouselData : [];
-
   return (
     <div className="sliderContainer">
       <Slider {...settings}>
-        {CrouselItem.map((recomJob, index) => (
-          <CrouselComp
-            key={index}
-            title={recomJob.title}
-            company={recomJob.company}
-            location={recomJob.location}
-          />
+        {CrouselData.map((recomJob, index) => (
+          <CrouselComp key={index} data={recomJob} />
         ))}
       </Slider>
     </div>
   );
 }
 
-export function CrouselComp({ title, company, location }) {
+export function CrouselComp({ data }) {
   const HandleApplyclick = () => {
     return null;
   };
   return (
-    <div className="singleCrouselContainer">
-      <div className="singleCrouselDiv">
-        <div> Job Role: {title} </div>
-        <div> Company: {company} </div>
-        <div> Location: {location} </div>
+    <div className="job-card">
+      <div className="job-header">
+        <div className="job-title">{data.title}</div>
+        <div className="job-badge">Featured</div>
       </div>
-      <div className="ApplyButtonContainer">
-        <button className="ApplyButton" onClick={HandleApplyclick}>
+
+      <div className="job-details">
+        <div className="job-info">
+          <FontAwesomeIcon icon={faBuilding} className="job-icon" />
+          <span className="job-company">{data.company}</span>
+        </div>
+        <div className="job-info">
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="job-icon" />
+          <span className="job-location">{data.location}</span>
+        </div>
+      </div>
+
+      <div className="job-tags">
+        <span className="job-tag">{data.jobType}</span>
+        <span className="job-tag">{data.category}</span>
+        <span className="job-tag">{data.experienceLevel}</span>
+      </div>
+
+      <div className="job-footer">
+        <div className="job-salary">{data.salary}</div>
+        <button className="apply-btn" onClick={HandleApplyclick}>
           <FontAwesomeIcon icon={faUpRightFromSquare} />
+          <span>Apply Now</span>
         </button>
       </div>
     </div>

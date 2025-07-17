@@ -6,17 +6,13 @@ import { Api_url } from "../globalConfig";
 import "../login/login.css";
 
 function SignUp() {
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { currentUser, setCurrentUser } = useAuth();
+  const { setCurrentUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(
-      "Email:\n" + email + "\nPassword:\n" + password + "\nFull Name:\n" + Name
-    );
     try {
       const usrRes = await axios.post(`${Api_url}/signup`, {email, password, username});
       if (!usrRes.data || usrRes.data.length === 0) {
@@ -25,10 +21,9 @@ function SignUp() {
       localStorage.setItem("token", usrRes.data.token);
       localStorage.setItem("userId", usrRes.data.userId);
       setCurrentUser(usrRes.data.userId);
-      console.log(usrRes.data);
       window.location.href = '/app'
     } catch (error) {
-      console.log("Login Failed Due To :", error);
+      console.log("SignUp Failed Due To :", error);
     }
   };
 
@@ -40,62 +35,69 @@ function SignUp() {
           src={Imagepaths.HiringstoreslogoPath}
           alt="HiringStores Logo"
         />
-        <p id="txtWelcome">Welcome Back </p>
+        <p id="txtWelcome">Create Your Account</p>
+        <p className="subtitle">Join our community today</p>
       </div>
+      
       <form className="LoginForm" onSubmit={handleSubmit}>
         <div className="FormGroup">
-          <label htmlFor="Name">User Name</label>
           <input
-            className="inputFields"
             type="text"
             id="Name"
             value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder=" "
             required
-            style={{ backgroundColor: "#211f1f", color: "#fff" }}
           />
+          <label htmlFor="Name">User Name</label>
+          <div className="inputHighlight"></div>
         </div>
 
         <div className="FormGroup">
-          <label htmlFor="email">Email:</label>
           <input
-            className="inputFields"
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder=" "
             required
-            style={{ backgroundColor: "#211f1f", color: "#fff" }}
           />
+          <label htmlFor="email">Email Address</label>
+          <div className="inputHighlight"></div>
         </div>
+        
         <div className="FormGroup">
-          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder=" "
             required
-            style={{ backgroundColor: "#211f1f", color: "#fff" }}
           />
+          <label htmlFor="password">Password</label>
+          <div className="inputHighlight"></div>
         </div>
+        
         <button className="LoginButton" type="submit">
-          SignUp
+          <span>Sign Up</span>
+          <div className="buttonHighlight"></div>
         </button>
       </form>
       
       <div className="signUp">
         <p className="SignupTxt">
-          I have an account?
+          Already have an account?
           <a href="/login" id="signupTxturl">
             {" "}
             Login       
           </a>
         </p>
       </div>
-
+      
+      <div className="brandMessage">
+        <p>Elevate your hiring experience</p>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-.sliderContainer {
+/* .sliderContainer {
   width: 80%;
   padding-left: 4%;
   padding-bottom: 100px;
@@ -16,6 +16,7 @@
   z-index: 1;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  
 }
 
 .custom-arrow:hover {
@@ -26,18 +27,15 @@
 }
 .next-arrow {
   right: 20px;
+
 }
 .slick-next:before {
   color: black;
   font-size: 1.5rem;
-  font-size: 3rem;
-  margin-top: -15px;
 }
 .slick-prev:before {
   color: black;
   font-size: 1.5rem;
-  font-size: 3rem;
-  margin-top: -15px;
 }
 .crouselTitle {
   font-size: 2rem;
@@ -61,4 +59,216 @@
 .jobsSecContainer{
   display: flex;
   justify-content: center;
+} */
+
+.job-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .job-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    border-radius: 3px;
+  }
+  
+  .job-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1.3;
+    max-width: 80%;
+  }
+  
+  .job-badge {
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(142, 68, 173, 0.3);
+  }
+  
+  .job-details {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .job-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .job-icon {
+    color: #8e44ad;
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .job-company, .job-location {
+    font-size: 1.05rem;
+    color: #34495e;
+  }
+  
+  .job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: auto;
+  }
+  
+  .job-tag {
+    background: #f0f8ff;
+    color: #3498db;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f5f5f5;
+  }
+  
+  .job-salary {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 1.1rem;
+  }
+  
+  .apply-btn {
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  }
+  
+  .apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  }
+  
+  /* Carousel container styles */
+  .sliderContainer {
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 0 100px;
+  }
+  
+  .crouselTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 50px 0 60px;
+    color: #2c3e50;
+    position: relative;
+  }
+  
+  .crouselTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    border-radius: 2px;
+  }
+  
+  .custom-arrow {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  
+  .custom-arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .prev-arrow {
+    left: -70px !important;
+  }
+  
+  .next-arrow {
+    right: -70px !important;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bold;
+  }
+  
+  .slick-dots {
+    bottom: 40px !important;
+  }
+  
+  .slick-dots li button:before {
+    font-size: 10px !important;
+    color: #bdc3c7 !important;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #8e44ad !important;
+  }
+  .slick-track {
+    display: flex !important;
+    gap: 2% !important ;
+    
 }
