@@ -10,7 +10,7 @@ export function CompaniesHelpSlider() {
             <div className="CompaniesComTitle">
                 <p>Companies We've Helped</p>
             </div>
-            <div class="wholeCompWrapper">
+            <div className="wholeCompWrapper">
                 <OuterSliderComCover>
                     <CompaniesContainer >
                         {CompaniesEntries.map(([companyName, logoPath], index) => (

@@ -1,0 +1,133 @@
+.category-card {
+  border-radius: 12px;
+  padding: 16px;
+  color: white;
+  min-width: 140px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.category-card:hover::before {
+  transform: translateX(0);
+}
+
+.category-icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.category-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-count {
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Dark theme */
+.category-card.dark {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.category-card.dark:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .category-card {
+    min-width: 120px;
+    height: 120px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .category-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .category-title {
+    font-size: 1rem;
+  }
+
+  .category-count {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-card {
+    min-width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .category-icon {
+    font-size: 1.3rem;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 6px;
+  }
+
+  .category-title {
+    font-size: 0.9rem;
+  }
+
+  .category-count {
+    font-size: 0.7rem;
+  }
+}
