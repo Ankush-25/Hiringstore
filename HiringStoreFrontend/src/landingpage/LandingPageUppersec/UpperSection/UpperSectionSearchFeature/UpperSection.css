@@ -23,6 +23,428 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+
+/* Black theme wrapper */
+.black-theme-wrapper {
+    background-color: rgb(29, 29, 29);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.black-theme-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8e44ad, transparent);
+    opacity: 0.5;
+}
+
+/* Internship Section Styles - Modern Design */
+.internship-section {
+    padding: 80px 0 120px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.internship-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8e44ad, #3498db, transparent);
+    z-index: 1;
+}
+
+.internship-section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.internship-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    border-radius: 3px;
+}
+
+.internship-section-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #aaaaaa;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.internship-carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.internship-slide {
+    padding: 10px;
+}
+
+.internship-card {
+    background: linear-gradient(145deg, #1e1e1e, #252525);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+}
+
+.internship-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(142, 68, 173, 0.25);
+    border-color: rgba(142, 68, 173, 0.5);
+}
+
+.internship-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(142, 68, 173, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(142, 68, 173, 0.2);
+    border: 1px solid #8e44ad;
+}
+
+.internship-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.internship-header::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #8e44ad, #3498db);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.internship-card:hover .internship-header::after {
+    width: 80px;
+}
+
+.internship-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+    max-width: 80%;
+}
+
+.internship-badge {
+    background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.internship-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.internship-badge:hover::before {
+    opacity: 1;
+}
+
+.internship-details {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.internship-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.internship-icon {
+    color: #9b59b6;
+    font-size: 0.9rem;
+    width: 18px;
+    text-align: center;
+}
+
+.internship-company, .internship-location, .internship-duration {
+    font-size: 1.05rem;
+    color: #dddddd;
+}
+
+.internship-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.internship-tag {
+background: rgba(255, 255, 255, 0.05);
+color: #dddddd;
+padding: 6px 14px;
+border-radius: 50px;
+font-size: 0.75rem;
+display: flex;
+align-items: center;
+gap: 6px;
+border: 1px solid rgba(255, 255, 255, 0.05);
+transition: all 0.3s ease;
+backdrop-filter: blur(5px);
+}
+
+.internship-tag:hover {
+background: rgba(142, 68, 173, 0.2);
+border-color: rgba(142, 68, 173, 0.3);
+transform: translateY(-2px);
+}
+
+.internship-footer {
+margin-top: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+z-index: 2;
+padding-top: 15px;
+border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.internship-stipend {
+font-weight: 700;
+color: white;
+font-size: 1.1rem;
+}
+
+.internship-section-footer {
+display: flex;
+justify-content: center;
+margin-top: 40px;
+}
+
+.view-all-btn {
+background: transparent;
+color: #8e44ad;
+border: 2px solid #8e44ad;
+border-radius: 30px;
+padding: 12px 25px;
+display: flex;
+align-items: center;
+gap: 10px;
+cursor: pointer;
+font-weight: 600;
+transition: all 0.3s ease;
+font-size: 1rem;
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+
+.view-all-btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background: linear-gradient(to right, #8e44ad, #3498db);
+transition: all 0.5s ease;
+z-index: -1;
+}
+
+.view-all-btn:hover::before {
+width: 100%;
+}
+
+.view-all-btn:hover {
+color: white;
+transform: translateY(-2px);
+border-color: transparent;
+}
+
+.internship-loading {
+text-align: center;
+padding: 40px;
+font-size: 1.2rem;
+color: #aaaaaa;
+}
+
+/* Slick carousel custom styling */
+.internship-section .slick-dots li button:before {
+color: #aaaaaa;
+}
+
+.internship-section .slick-dots li.slick-active button:before {
+color: #8e44ad;
+}
+
+.internship-section .custom-arrow {
+display: flex !important;
+align-items: center;
+justify-content: center;
+background: linear-gradient(to right, #8e44ad, #3498db);
+border-radius: 50%;
+width: 40px;
+height: 40px;
+z-index: 1;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.internship-section .custom-arrow:hover {
+transform: scale(1.1);
+box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+}
+
+.internship-section .prev-arrow {
+left: -70px !important;
+}
+
+.internship-section .next-arrow {
+right: -70px !important;
+}
+
+.internship-section .slick-prev:before,
+.internship-section .slick-next:before {
+color: white;
+}
+
+/* Apply button styling */
+.internship-card .apply-btn {
+background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 50px;
+font-weight: 600;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 8px;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
+overflow: hidden;
+box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
+}
+
+.apply-btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+
+.apply-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(142, 68, 173, 0.6);
+}
+
+.apply-btn:hover::before {
+opacity: 1;
+}
+
+.apply-btn span {
+position: relative;
+z-index: 1;
+}
+
+.apply-btn svg {
+position: relative;
+z-index: 1;
+transition: transform 0.3s ease;
+}
+
+.apply-btn:hover svg {
+transform: translateX(3px);
+    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.5), 0 0 10px rgba(142, 68, 173, 0.4);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .internship-section-title {
+        font-size: 2rem;
+    }
+    
+    .internship-card {
+        height: auto;
+        min-height: 280px;
+    }
+}
+
+/* Old styles - keeping for compatibility */
 .internshipsCrouselcontainer{
     display: flex;
     justify-content: center;

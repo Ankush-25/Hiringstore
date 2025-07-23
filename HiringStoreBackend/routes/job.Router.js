@@ -1,15 +1,20 @@
 const express = require('express');
 const jobRouter = express.Router();
 const jobController = require('../controllers/jobsController.js');
+const { protect, employer } = require('../middleware/authMiddleware');
 
-
-//who is posting the job with id 
-jobRouter.post('/postJob/:ID', jobController.PostJob);
+// Public routes
 jobRouter.get('/FeatureJobs/:NO', jobController.FeaturedJob);
+jobRouter.get('/searchJobs', jobController.searchJobs);
 
-jobRouter.post('/postJob/', jobController.TPostJob);
+// Protected routes - require authentication
+jobRouter.post('/postJob/:ID', protect, employer, jobController.PostJob);
+jobRouter.post('/postJob/', protect, employer, jobController.TPostJob);
+
+// Commented routes for future implementation
 // jobRouter.get('/getJobs', jobController.getJobs);
 // jobRouter.get('/getJob/:id', jobController.getJobById);
-// jobRouter.delete('/deleteJob/:id', jobController.deleteJob);
-// jobRouter.put('/updateJob/:id', jobController.updateJob);
+// jobRouter.delete('/deleteJob/:id', protect, employer, jobController.deleteJob);
+// jobRouter.put('/updateJob/:id', protect, employer, jobController.updateJob);
+
 module.exports = jobRouter;

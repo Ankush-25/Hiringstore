@@ -1,10 +1,10 @@
-import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
-import User from "../model/userModel.js";
-import dotenv from "dotenv";
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const User = require("../model/userModel.js");
+const dotenv = require("dotenv");
 dotenv.config();
 
-export async function login(req, res) {
+const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -25,7 +25,7 @@ export async function login(req, res) {
   }
 }
 
-export async function SignUp(req, res) {
+const SignUp = async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const user = await User.findOne({ $or: [{ username }, { email }] });
@@ -57,7 +57,7 @@ export async function SignUp(req, res) {
   }
 }
 
-export const deleteUser = async (req, res)=>{
+const deleteUser = async (req, res) => {
   const userId = req.params.ID
   
   try {
@@ -71,5 +71,50 @@ export const deleteUser = async (req, res)=>{
     res.status(500).json("Internal Server Error")
     
   }
-  
 }
+
+const refreshToken = async (req, res) => {
+  try {
+    const { userId, token } = req.body;
+    
+    if (!userId || !token) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+    
+    // Verify the existing token
+    try {
+      jwt.verify(token, process.env.JWT_SECERT_KEY);
+    } catch (error) {
+      // If token is invalid or expired, return error
+      return res.status(401).json({ message: "Invalid or expired token" });
+    }
+    
+    // Find the user
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    
+    // Generate a new token
+    const newToken = jwt.sign({ id: user._id }, process.env.JWT_SECERT_KEY, {
+      expiresIn: "80hr",
+    });
+    
+    // Return the new token
+    return res.status(200).json({
+      message: "Token refreshed successfully",
+      token: newToken,
+      userId: user._id
+    });
+  } catch (error) {
+    console.error("Error refreshing token:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+module.exports = {
+  login,
+  SignUp,
+  deleteUser,
+  refreshToken
+};

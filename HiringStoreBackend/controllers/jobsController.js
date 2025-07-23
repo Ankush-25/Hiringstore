@@ -1,10 +1,12 @@
-import Job from "../model/jobModel.js";
+const Job = require("../model/jobModel.js");
+const { EJSON } = require('bson');
 
-export const PostJob = async (req, res) => {
+const PostJob = async (req, res) => {
   const user = req.user.ID;
-};import { EJSON } from 'bson';
+  // Implementation to be completed
+};
 
-export const TPostJob = async (req, res) => {
+const TPostJob = async (req, res) => {
   try {
     // Parse the request body using EJSON if it's in MongoDB Extended JSON format
     const parsedBody = EJSON.parse(JSON.stringify(req.body));
@@ -27,7 +29,7 @@ export const TPostJob = async (req, res) => {
   }
 };
 
-export const FeaturedJob = async (req, res) => {
+const FeaturedJob = async (req, res) => {
   const jobNo = req.params.NO || 5;
   if (!jobNo || jobNo <= 0) {
     return res.status(404).json({
@@ -43,10 +45,67 @@ export const FeaturedJob = async (req, res) => {
     res
       .status(200)
       .json(
-        { message: "Successfully Fetched the Fetured Jobs",jobsCollection }
+        { message: "Successfully Fetched the Fetured Jobs", jobsCollection }
       );
   } catch (error) {
     console.error("Unable to fetch featured JObs due to :", error);
     res.status(500).json("Internal Server Error!");
   }
+};
+
+const searchJobs = async (req, res) => {
+  try {
+    const { query, experience, location } = req.query;
+    
+    // Build search criteria
+    const searchCriteria = { isActive: true };
+    
+    if (query) {
+      searchCriteria.$or = [
+        { title: { $regex: query, $options: 'i' } },
+        { company: { $regex: query, $options: 'i' } },
+        { skillsRequired: { $in: [new RegExp(query, 'i')] } }
+      ];
+    }
+    
+    if (experience) {
+      searchCriteria.experienceLevel = { $regex: experience, $options: 'i' };
+    }
+    
+    if (location) {
+      searchCriteria.location = { $regex: location, $options: 'i' };
+    }
+    
+    // Execute search query
+    const jobs = await Job.find(searchCriteria)
+      .sort({ createdAt: -1 })
+      .limit(50);
+    
+    if (!jobs || jobs.length === 0) {
+      return res.status(200).json({ 
+        message: "No matching jobs found", 
+        jobs: [] 
+      });
+    }
+    
+    res.status(200).json({
+      message: "Jobs found successfully",
+      count: jobs.length,
+      jobs
+    });
+    
+  } catch (error) {
+    console.error("Error searching jobs:", error);
+    res.status(500).json({
+      error: "Failed to search jobs",
+      details: error.message
+    });
+  }
+};
+
+module.exports = {
+  PostJob,
+  TPostJob,
+  FeaturedJob,
+  searchJobs
 };

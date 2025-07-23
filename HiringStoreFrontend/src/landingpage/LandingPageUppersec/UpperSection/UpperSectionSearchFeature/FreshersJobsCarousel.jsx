@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import { Api_url } from "../../../../globalConfig.js";
-import { internships } from "../../../Var";
+import { freshersJobs } from "../../../Var.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUpRightFromSquare,
@@ -44,17 +44,17 @@ function PreviousArrow(props) {
   );
 }
 
-function InternshipCard({ data }) {
+function FresherJobCard({ data }) {
   const handleApplyClick = () => {
     // Handle application logic here
-    console.log("Applied for internship:", data.title);
+    console.log("Applied for job:", data.title);
   };
 
   return (
     <div className="internship-card">
       <div className="internship-header">
         <div className="internship-title">{data.title}</div>
-        <div className="internship-badge">Internship</div>
+        <div className="internship-badge">Fresher</div>
       </div>
 
       <div className="internship-details">
@@ -66,17 +66,17 @@ function InternshipCard({ data }) {
           <FontAwesomeIcon icon={faMapMarkerAlt} className="internship-icon" />
           <span className="internship-location">{data.location}</span>
         </div>
-        {data.duration && (
+        {data.experience && (
           <div className="internship-info">
             <FontAwesomeIcon icon={faClock} className="internship-icon" />
-            <span className="internship-duration">{data.duration || "3-6 months"}</span>
+            <span className="internship-duration">{data.experience}</span>
           </div>
         )}
       </div>
 
       <div className="internship-tags">
         <span className="internship-tag">
-          <FontAwesomeIcon icon={faGraduationCap} /> {data.education || "Undergraduate"}
+          <FontAwesomeIcon icon={faGraduationCap} /> {data.education || "Any Graduate"}
         </span>
         <span className="internship-tag">
           <FontAwesomeIcon icon={faCalendarAlt} /> {data.type || "Full-time"}
@@ -84,7 +84,7 @@ function InternshipCard({ data }) {
       </div>
 
       <div className="internship-footer">
-        <div className="internship-stipend">{data.stipend || "₹15,000 - ₹25,000/month"}</div>
+        <div className="internship-stipend">{data.salary || "₹2.5L - ₹5L/year"}</div>
         <button className="apply-btn" onClick={handleApplyClick}>
           <FontAwesomeIcon icon={faUpRightFromSquare} />
           <span>Apply Now</span>
@@ -94,25 +94,25 @@ function InternshipCard({ data }) {
   );
 }
 
-export function InternshipsCrousel() {
-  const [internshipData, setInternshipData] = useState([]);
+export function FreshersJobsCarousel() {
+  const [jobsData, setJobsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Try to fetch from API first
-        const response = await axios.get(`${Api_url}/FeatureJobs/10`);
+        const response = await axios.get(`${Api_url}/FresherJobs/10`);
         if (response && response.data && response.data.jobsCollection) {
-          setInternshipData(response.data.jobsCollection);
+          setJobsData(response.data.jobsCollection);
         } else {
           // Fallback to mock data if API fails
-          setInternshipData(internships.internships);
+          setJobsData(freshersJobs.jobs || []);
         }
       } catch (err) {
-        console.error("Failed to fetch internships:", err);
+        console.error("Failed to fetch freshers jobs:", err);
         // Use mock data as fallback
-        setInternshipData(internships.internships);
+        setJobsData(freshersJobs.jobs || []);
       } finally {
         setLoading(false);
       }
@@ -153,24 +153,24 @@ export function InternshipsCrousel() {
   if (loading) {
     return (
       <div className="internship-section">
-        <h2 className="internship-section-title">Latest Internships</h2>
-        <div className="internship-loading">Loading internships...</div>
+        <h2 className="internship-section-title">Freshers Jobs</h2>
+        <div className="internship-loading">Loading freshers jobs...</div>
       </div>
     );
   }
 
   return (
     <div className="internship-section">
-      <h2 className="internship-section-title">Latest Internships</h2>
+      <h2 className="internship-section-title">Freshers Jobs</h2>
       <p className="internship-section-subtitle">
-        Kickstart your career with these exciting internship opportunities
+        Start your career journey with these exciting opportunities for freshers
       </p>
       
       <div className="internship-carousel-container">
         <Slider {...settings}>
-          {internshipData.map((internship, index) => (
-            <div key={internship.id || index} className="internship-slide">
-              <InternshipCard data={internship} />
+          {jobsData.map((job, index) => (
+            <div key={job.id || index} className="internship-slide">
+              <FresherJobCard data={job} />
             </div>
           ))}
         </Slider>
@@ -178,7 +178,7 @@ export function InternshipsCrousel() {
       
       <div className="internship-section-footer">
         <button className="view-all-btn">
-          View All Internships
+          View All Jobs
           <FontAwesomeIcon icon={faUpRightFromSquare} />
         </button>
       </div>

@@ -1,0 +1,92 @@
+/* Import base styles from CategoryGrid */
+@import './CategoryGrid.css';
+
+/* Additional styles for collapsible functionality */
+.category-grid.collapsed {
+  max-height: 600px; /* Increased to ensure full visibility of rows */
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.category-grid.expanded {
+  max-height: 2000px; /* Large enough to contain all items */
+  transition: max-height 0.5s ease;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-bottom: 20px;
+}
+
+.toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-button.light {
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  color: white;
+}
+
+.toggle-button.dark {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: white;
+}
+
+.toggle-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-button:active {
+  transform: translateY(1px);
+}
+
+/* Animation for the toggle button */
+.toggle-button svg {
+  transition: transform 0.3s ease;
+}
+
+.toggle-button:hover svg {
+  transform: translateY(2px);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .category-grid.collapsed {
+    max-height: 650px; /* Adjusted for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .category-grid.collapsed {
+    max-height: 750px; /* Adjusted for smaller screens */
+  }
+  
+  .toggle-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-grid.collapsed {
+    max-height: 850px; /* Adjusted for mobile screens */
+  }
+  
+  .toggle-button {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+} 

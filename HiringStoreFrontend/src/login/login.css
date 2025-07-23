@@ -150,7 +150,7 @@
 .subtitle {
   color: #b0a9c7;
   font-size: 1.1rem;
-  margin-top: -0.5rem;
+  margin-top: 0.5rem;
 }
 
 #signupTxturl {
@@ -179,4 +179,70 @@
   color: #8a85a3;
   text-align: center;
   font-style: italic;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff3333;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 0 auto 20px;
+  max-width: 300px;
+  text-align: center;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.LoginButton.loading {
+  background: linear-gradient(to right, #8e44ad, #3498db);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.LoginButton:disabled {
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.LoginButton.loading span {
+  animation: pulse 1.5s infinite;
+}
+
+.auth-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(142, 68, 173, 0.2);
+  border-top: 4px solid #8e44ad;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -1,126 +1,121 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { recommendedJobs } from "../landingpage/Var";
-import "./App.css";
+import CarouselComponent from "../components/CarouselComponent";
+import JobCard from "../components/JobCard";
+import axios from "axios";
+import { Api_url } from "../globalConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUpRightFromSquare,
-  faBuilding,
-  faMapMarkerAlt,
-} from "@fortawesome/free-solid-svg-icons";
-function NextArrow(props) {
-  const { className, style, onClick } = props;
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import "./App.css";
+
+const RecomendedJobsCrousel = ({ theme = "light" }) => {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [savedJobs, setSavedJobs] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        setLoading(true);
+        // Try to fetch jobs from API
+        const response = await axios.get(`${Api_url}/FeatureJobs/10`);
+        
+        if (response.data && response.data.jobsCollection) {
+          setJobs(response.data.jobsCollection);
+        } else {
+          // Fallback to mock data if API response is not as expected
+          setJobs(recommendedJobs.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch jobs:", error);
+        setError("Failed to load recommended jobs");
+        // Use mock data as fallback
+        setJobs(recommendedJobs.data);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Load saved jobs from localStorage
+    const loadSavedJobs = () => {
+      const saved = localStorage.getItem('savedJobs');
+      if (saved) {
+        try {
+          setSavedJobs(JSON.parse(saved));
+        } catch (e) {
+          console.error("Error parsing saved jobs:", e);
+        }
+      }
+    };
+
+    fetchJobs();
+    loadSavedJobs();
+  }, []);
+
+  const handleJobApply = (job) => {
+    // Navigate to job details page or application form
+    navigate(`/job/${job._id || job.id}`);
+  };
+
+  const handleJobSave = (job, isSaved) => {
+    const jobId = job._id || job.id;
+    let updatedSavedJobs = [...savedJobs];
+    
+    if (isSaved) {
+      // Add job to saved jobs if not already saved
+      if (!updatedSavedJobs.includes(jobId)) {
+        updatedSavedJobs.push(jobId);
+      }
+    } else {
+      // Remove job from saved jobs
+      updatedSavedJobs = updatedSavedJobs.filter(id => id !== jobId);
+    }
+    
+    setSavedJobs(updatedSavedJobs);
+    localStorage.setItem('savedJobs', JSON.stringify(updatedSavedJobs));
+  };
+
+  const handleViewAllJobs = () => {
+    navigate('/jobs');
+  };
+
+  const renderJobCard = (job) => {
+    const isJobSaved = savedJobs.includes(job._id || job.id);
+    
+    return (
+      <JobCard 
+        data={job}
+        onApply={handleJobApply}
+        onSave={handleJobSave}
+        isSaved={isJobSaved}
+        theme={theme}
+        compact
+      />
+    );
+  };
+
+  const viewAllButton = (
+    <button className="view-all-btn" onClick={handleViewAllJobs}>
+      View All <FontAwesomeIcon icon={faArrowRight} />
+    </button>
+  );
+
   return (
-    <div
-      className={`custom-arrow next-arrow ${className}`}
-      style={{ ...style }}
-      onClick={onClick}
+    <CarouselComponent
+      data={jobs}
+      renderItem={renderJobCard}
+      title="Jobs For You"
+      subtitle="Personalized job recommendations based on your profile"
+      containerClassName="recommended-jobs jobs-for-you"
+      theme={theme}
+      actionButton={viewAllButton}
+      loading={loading}
+      error={error}
     />
   );
-}
+};
 
-function PreviousArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`custom-arrow prev-arrow ${className}`}
-      style={{ ...style }}
-      onClick={onClick}
-    />
-  );
-}
-export function ItemsCrousel({ CrouselData, CrouselComp }) {
-  var settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    prevArrow: <PreviousArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-  return (
-    <div className="sliderContainer">
-      <Slider {...settings}>
-        {CrouselData.map((recomJob, index) => (
-          <CrouselComp key={index} data={recomJob} />
-        ))}
-      </Slider>
-    </div>
-  );
-}
-
-export function CrouselComp({ data }) {
-  const HandleApplyclick = () => {
-    return null;
-  };
-  return (
-    <div className="job-card">
-      <div className="job-header">
-        <div className="job-title">{data.title}</div>
-        <div className="job-badge">Featured</div>
-      </div>
-
-      <div className="job-details">
-        <div className="job-info">
-          <FontAwesomeIcon icon={faBuilding} className="job-icon" />
-          <span className="job-company">{data.company}</span>
-        </div>
-        <div className="job-info">
-          <FontAwesomeIcon icon={faMapMarkerAlt} className="job-icon" />
-          <span className="job-location">{data.location}</span>
-        </div>
-      </div>
-
-      <div className="job-tags">
-        <span className="job-tag">{data.jobType}</span>
-        <span className="job-tag">{data.category}</span>
-        <span className="job-tag">{data.experienceLevel}</span>
-      </div>
-
-      <div className="job-footer">
-        <div className="job-salary">{data.salary}</div>
-        <button className="apply-btn" onClick={HandleApplyclick}>
-          <FontAwesomeIcon icon={faUpRightFromSquare} />
-          <span>Apply Now</span>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-export default function RecomendedJobsCrousel() {
-  return (
-    <div className="jobsSecContainer">
-      <ItemsCrousel CrouselData={recommendedJobs} CrouselComp={CrouselComp} />
-    </div>
-  );
-}
+export default RecomendedJobsCrousel;

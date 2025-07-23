@@ -5,27 +5,33 @@ import {
   HerSecButtons,
 } from "./HeroSecDashboardStyles";
 import "./HeroSec.css";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PopularJobtype } from "../../landingpage/LandingPageUppersec/UpperSection/UpperSectionType/upperSecTypeParent";
 
 
-function HeroSection() {
-  const handleNavigation = async () =>(
-    window.location.href = "/app/JobPost"
-  )
+function HeroSection({ userName }) {
+  const handleFindJobs = () => {
+    window.location.href = "/jobs";
+  };
 
+  const handlePublishJob = () => {
+    window.location.href = "/publish-job";
+  };
 
   return (
     <HeroSecWrapper>
       <HeroSecbuttonCon>
         <div className="HerosecTextLines">
-          <h1>Begin Your Journey</h1>
+          <h1>{userName ? `Welcome, ${userName}!` : 'Begin Your Journey'}</h1>
           <p>Apply from Here and Get Hired</p>
         </div>
         <div className="HerosecButtons">
-          <HerSecButtons onClick={handleNavigation}>Find Jobs</HerSecButtons>
-          <HerSecButtons onClick={handleNavigation}>
+          <HerSecButtons onClick={handleFindJobs}>
+            <FontAwesomeIcon icon={faSearch} style={{ marginRight: "8px" }} />
+            Find Jobs
+          </HerSecButtons>
+          <HerSecButtons onClick={handlePublishJob}>
             <FontAwesomeIcon icon={faPlus} style={{ marginRight: "8px" }} />
             Publish Job
           </HerSecButtons>

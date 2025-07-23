@@ -1,34 +1,35 @@
 import { Imagepaths } from "../assets/Global_Need_files/ImagesPaths";
 import "./login.css";
 import { useState } from "react";
-import axios from "axios";
 import { useAuth } from "../authContext";
-import { Api_url } from "../globalConfig";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setCurrentUser } = useAuth();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const { login } = useAuth();
+  const navigate = useNavigate();
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage("");
+    setIsLoading(true);
+    
     try {
-      const usrRes = await axios.post(`${Api_url}/login`, {
-        email,
-        password
-      });
-      
-      if (!usrRes.data || usrRes.data.length === 0) {
-        alert("Invalid Credentials");
-      };
-      
-      localStorage.setItem("token", usrRes.data.token);
-      localStorage.setItem("userId", usrRes.data.userId);
-      setCurrentUser(usrRes.data.userId);
-      window.location.href = '/app';
-      
+      await login(email, password);
+      navigate('/app');
     } catch (error) {
-      console.log("Login Failed Due To :", error);
+      console.error("Login Failed:", error);
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data);
+      } else {
+        setErrorMessage("Login failed. Please check your credentials and try again.");
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -44,6 +45,12 @@ function Login() {
         <p className="subtitle">Sign in to continue</p>
       </div>
       
+      {errorMessage && (
+        <div className="error-message">
+          {errorMessage}
+        </div>
+      )}
+      
       <form className="LoginForm" onSubmit={handleSubmit}>
         <div className="FormGroup">
           <input
@@ -53,6 +60,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder=" "
             required
+            disabled={isLoading}
           />
           <label htmlFor="email">Email Address</label>
           <div className="inputHighlight"></div>
@@ -66,13 +74,18 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder=" "
             required
+            disabled={isLoading}
           />
           <label htmlFor="password">Password</label>
           <div className="inputHighlight"></div>
         </div>
         
-        <button className="LoginButton" type="submit">
-          <span>Login</span>
+        <button 
+          className={`LoginButton ${isLoading ? 'loading' : ''}`} 
+          type="submit"
+          disabled={isLoading}
+        >
+          <span>{isLoading ? 'Signing in...' : 'Login'}</span>
           <div className="buttonHighlight"></div>
         </button>
       </form>
