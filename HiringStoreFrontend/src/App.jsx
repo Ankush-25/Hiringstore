@@ -28,7 +28,7 @@ function App() {
                 <Route path="/Blogs" element={<Blogs />} />
                 <Route path="/aboutUs" element={<AboutUs />} />
                 <Route path="/search-results" element={<SearchResults />} />
-                <Route path="/jobs/:jobId/apply" element={<JobApplicationPage />} />
+                {/* <Route path="/jobs/:jobId/apply" element={<JobApplicationPage />} /> */}
                 <Route path="/*" element={<Error404 />} />
                 <Route 
                   path="/app" 

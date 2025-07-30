@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { 
+import { useState } from "react";
+import {
   NavbarContainer,
   LogoSection,
   SearchSection,
@@ -15,10 +15,10 @@ import {
   AuthButton,
   MobileMenuButton,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
 } from "./navbarstyes";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
   faSearch,
   faMapMarkerAlt,
   faBriefcase,
@@ -35,154 +35,189 @@ import {
   faUserCog,
   faBookmark,
   faFileAlt,
-  faChartBar
+  faChartBar,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../../../authContext";
 import { Imagepaths } from "../../../../../src/assets/Global_Need_files/ImagesPaths";
 
 export function LandingNavBar() {
-    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [showUserDropdown, setShowUserDropdown] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [locationInput, setLocationInput] = useState('');
-    const [notifications] = useState(5);
-    
-    const { user, logout } = useAuth();
-    const navigate = useNavigate();
-    const { pathname } = useLocation();
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showUserDropdown, setShowUserDropdown] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [locationInput, setLocationInput] = useState("");
+  const [notifications] = useState(5);
 
-    const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
-    const toggleUserDropdown = () => setShowUserDropdown(!showUserDropdown);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
-    const handleSearch = (e) => {
-        e?.preventDefault();
-        if (searchQuery.trim()) {
-            navigate(`/jobs?q=${encodeURIComponent(searchQuery)}&location=${encodeURIComponent(locationInput)}`);
-        }
-    };
+  const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
+  const toggleUserDropdown = () => setShowUserDropdown(!showUserDropdown);
 
-    const handleLogout = () => {
-        logout();
-        setShowUserDropdown(false);
-        navigate('/');
-    };
+  const handleSearch = (e) => {
+    e?.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(
+        `/jobs?q=${encodeURIComponent(
+          searchQuery
+        )}&location=${encodeURIComponent(locationInput)}`
+      );
+    }
+  };
 
-    const menuItems = [
-        { label: 'Find Jobs', path: '/jobs', icon: faBriefcase, className: 'jobs-link' },
-        { label: 'Companies', path: '/companies', icon: faBuilding },
-        { label: 'Career Guidance', path: '/career', icon: faGraduationCap },
-        { label: 'About', path: '/about', icon: faUser }
-    ];
+  const handleLogout = () => {
+    logout();
+    setShowUserDropdown(false);
+    navigate("/");
+  };
 
-    const userMenuItems = [
-        { label: 'My Profile', icon: faUserCog, action: () => navigate('/profile') },
-        { label: 'Saved Jobs', icon: faBookmark, action: () => navigate('/saved-jobs') },
-        { label: 'My Applications', icon: faFileAlt, action: () => navigate('/applications') },
-        { label: 'Dashboard', icon: faChartBar, action: () => navigate('/dashboard') },
-        { label: 'Logout', icon: faSignOutAlt, action: handleLogout }
-    ];
+  const menuItems = [
+    user&&{
+      label: "Find Jobs",
+      path: "/jobs",
+      icon: faBriefcase,
+      className: "jobs-link",
+    },
+    { label: "Companies", path: "/companies", icon: faBuilding },
+    { label: "Career Guidance", path: "/career", icon: faGraduationCap },
+    { label: "About", path: "/about", icon: faUser },
+  ].filter(Boolean);
 
-    const shouldShowSearch = !['/', '/home'].includes(pathname);
+  const userMenuItems = [
+    {
+      label: "My Profile",
+      icon: faUserCog,
+      action: () => navigate("/profile"),
+    },
+    {
+      label: "Saved Jobs",
+      icon: faBookmark,
+      action: () => navigate("/saved-jobs"),
+    },
+    {
+      label: "My Applications",
+      icon: faFileAlt,
+      action: () => navigate("/applications"),
+    },
+    {
+      label: "Dashboard",
+      icon: faChartBar,
+      action: () => navigate("/dashboard"),
+    },
+    { label: "Logout", icon: faSignOutAlt, action: handleLogout },
+  ];
 
-    return (
-        <NavbarContainer>
-            <LogoSection onClick={() => navigate('/')}>
-                <img src={Imagepaths.HiringstoreslogoPath} alt="HiringStores Logo" style={{ height: '60px' }} />
-            </LogoSection>
+  const shouldShowSearch = !["/", "/home"].includes(pathname);
 
-            {shouldShowSearch && (
-                <SearchSection>
-                    <SearchBar onSubmit={handleSearch}>
-                        <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                        <input
-                            type="text"
-                            placeholder="Search jobs, companies, skills..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && handleSearch(e)}
-                        />
-                        <div className="location-divider"></div>
-                        <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
-                        <input
-                            type="text"
-                            placeholder="Location"
-                            className="location-input"
-                            value={locationInput}
-                            onChange={(e) => setLocationInput(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && handleSearch(e)}
-                        />
-                        <button type="submit" className="search-button">
-                            <span>Search</span>
-                        </button>
-                    </SearchBar>
-                </SearchSection>
-            )}
+  return (
+    <NavbarContainer>
+      <LogoSection onClick={() => navigate("/")}>
+        <img
+          src={Imagepaths.HiringstoreslogoPath}
+          alt="HiringStores Logo"
+          style={{ height: "60px" }}
+        />
+      </LogoSection>
 
-            <MobileMenuButton onClick={toggleMobileMenu}>
-                <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
-            </MobileMenuButton>
+      {shouldShowSearch && (
+        <SearchSection>
+          <SearchBar onSubmit={handleSearch}>
+            <FontAwesomeIcon icon={faSearch} className="search-icon" />
+            <input
+              type="text"
+              placeholder="Search jobs, companies, skills..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyPress={(e) => e.key === "Enter" && handleSearch(e)}
+            />
+            <div className="location-divider"></div>
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
+            <input
+              type="text"
+              placeholder="Location"
+              className="location-input"
+              value={locationInput}
+              onChange={(e) => setLocationInput(e.target.value)}
+              onKeyPress={(e) => e.key === "Enter" && handleSearch(e)}
+            />
+            <button type="submit" className="search-button">
+              <span>Search</span>
+            </button>
+          </SearchBar>
+        </SearchSection>
+      )}
 
-            <MainNavigation isMobileMenuOpen={isMobileMenuOpen}>
-                {menuItems.map((item, index) => (
-                    <NavItem
-                        key={index}
-                        to={item.path}
-                        className={item.className}
-                        activeClassName="active"
+      <MobileMenuButton onClick={toggleMobileMenu}>
+        <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
+      </MobileMenuButton>
+
+      <MainNavigation isMobileMenuOpen={isMobileMenuOpen}>
+        {menuItems.map((item, index) => (
+          <NavItem
+            key={index}
+            to={item.path}
+            className={item.className}
+            activeClassName="active"
+          >
+            <FontAwesomeIcon icon={item.icon} className="nav-icon" />
+            {item.label}
+          </NavItem>
+        ))}
+      </MainNavigation>
+
+      <UserSection>
+        {user ? (
+          <>
+            <NotificationButton>
+              <FontAwesomeIcon icon={faBell} />
+              {notifications > 0 && (
+                <NotificationBadge>{notifications}</NotificationBadge>
+              )}
+            </NotificationButton>
+
+            <div style={{ position: "relative" }}>
+              <UserProfile onClick={toggleUserDropdown}>
+                <div className="user-avatar">
+                  {user.name?.[0]?.toUpperCase() || "U"}
+                </div>
+                <span className="user-name">{user.name || "User"}</span>
+              </UserProfile>
+
+              {showUserDropdown && (
+                <DropdownMenu>
+                  {userMenuItems.map((item, index) => (
+                    <DropdownItem
+                      key={index}
+                      onClick={() => {
+                        item.action();
+                        setShowUserDropdown(false);
+                      }}
                     >
-                        <FontAwesomeIcon icon={item.icon} className="nav-icon" />
-                        {item.label}
-                    </NavItem>
-                ))}
-            </MainNavigation>
-
-            <UserSection>
-                {user ? (
-                    <>
-                        <NotificationButton>
-                            <FontAwesomeIcon icon={faBell} />
-                            {notifications > 0 && (
-                                <NotificationBadge>{notifications}</NotificationBadge>
-                            )}
-                        </NotificationButton>
-                        
-                        <div style={{ position: 'relative' }}>
-                            <UserProfile onClick={toggleUserDropdown}>
-                                <div className="user-avatar">
-                                    {user.name?.[0]?.toUpperCase() || 'U'}
-                                </div>
-                                <span className="user-name">{user.name || 'User'}</span>
-                            </UserProfile>
-
-                            {showUserDropdown && (
-                                <DropdownMenu>
-                                    {userMenuItems.map((item, index) => (
-                                        <DropdownItem key={index} onClick={() => {
-                                            item.action();
-                                            setShowUserDropdown(false);
-                                        }}>
-                                            <FontAwesomeIcon icon={item.icon} className="dropdown-icon" />
-                                            {item.label}
-                                        </DropdownItem>
-                                    ))}
-                                </DropdownMenu>
-                            )}
-                        </div>
-                    </>
-                ) : (
-                    <ActionButtons>
-                        <AuthButton variant="login" onClick={() => navigate('/login')}>
-                            <FontAwesomeIcon icon={faSignInAlt} className="auth-icon" />
-                            Login
-                        </AuthButton>
-                        <AuthButton onClick={() => navigate('/signup')}>
-                            <FontAwesomeIcon icon={faUserPlus} className="auth-icon" />
-                            Sign Up
-                        </AuthButton>
-                    </ActionButtons>
-                )}
-            </UserSection>
-        </NavbarContainer>
-    );
+                      <FontAwesomeIcon
+                        icon={item.icon}
+                        className="dropdown-icon"
+                      />
+                      {item.label}
+                    </DropdownItem>
+                  ))}
+                </DropdownMenu>
+              )}
+            </div>
+          </>
+        ) : (
+          <ActionButtons>
+            <AuthButton variant="login" onClick={() => navigate("/login")}>
+              <FontAwesomeIcon icon={faSignInAlt} className="auth-icon" />
+              Login
+            </AuthButton>
+            <AuthButton onClick={() => navigate("/signup")}>
+              <FontAwesomeIcon icon={faUserPlus} className="auth-icon" />
+              Sign Up
+            </AuthButton>
+          </ActionButtons>
+        )}
+      </UserSection>
+    </NavbarContainer>
+  );
 }

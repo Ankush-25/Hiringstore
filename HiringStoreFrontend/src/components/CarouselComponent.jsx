@@ -67,7 +67,7 @@ const CarouselComponent = ({
 }) => {
   // Default settings for the carousel
   const defaultSettings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
