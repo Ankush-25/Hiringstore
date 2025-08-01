@@ -48,7 +48,7 @@ export function LandingNavBar() {
   const [locationInput, setLocationInput] = useState("");
   const [notifications] = useState(5);
 
-  const { user, logout } = useAuth();
+  const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -160,7 +160,7 @@ export function LandingNavBar() {
       </MainNavigation>
 
       <UserSection>
-        {user ? (
+        {currentUser ? (
           <>
             <NotificationButton>
               <FontAwesomeIcon icon={faBell} />
@@ -168,15 +168,13 @@ export function LandingNavBar() {
                 <NotificationBadge>{notifications}</NotificationBadge>
               )}
             </NotificationButton>
-
             <div style={{ position: "relative" }}>
               <UserProfile onClick={toggleUserDropdown}>
                 <div className="user-avatar">
-                  {user.name?.[0]?.toUpperCase() || "U"}
+                  {currentUser.name?.[0]?.toUpperCase() || "U"}
                 </div>
-                <span className="user-name">{user.name || "User"}</span>
+                <span className="user-name">{currentUser.name || "User"}</span>
               </UserProfile>
-
               {showUserDropdown && (
                 <DropdownMenu>
                   {userMenuItems.map((item, index) => (
