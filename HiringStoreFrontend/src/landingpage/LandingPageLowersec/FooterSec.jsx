@@ -24,8 +24,8 @@ export function Footerbody() {
         </div>
         <div className="copyrightpart">
           <p className="copyright-years">
-            &copy; All rights are reserved to Vigyapanam.pvt.ltd{" "}
             <span>(2021-2025)</span>
+            &copy; All rights are reserved to Vigyapanam.pvt.ltd{" "}
           </p>
         </div>
       </FooterWrapper>

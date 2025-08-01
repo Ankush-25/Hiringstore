@@ -8,6 +8,7 @@ jobRouter.get('/FeatureJobs/:NO', jobController.FeaturedJob);
 jobRouter.get('/searchJobs', jobController.searchJobs);
 
 // Protected routes - require authentication
+// jobRouter.get()
 jobRouter.post('/postJob/:ID', protect, employer, jobController.PostJob);
 jobRouter.post('/postJob/', protect, employer, jobController.TPostJob);
 

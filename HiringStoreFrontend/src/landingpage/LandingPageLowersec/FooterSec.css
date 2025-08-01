@@ -21,10 +21,8 @@
 }
 .copyright-years{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    
-
 }
 
 .copyrightpart{
