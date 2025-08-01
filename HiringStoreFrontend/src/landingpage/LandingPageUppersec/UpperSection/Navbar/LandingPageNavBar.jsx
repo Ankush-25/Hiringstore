@@ -73,16 +73,9 @@ export function LandingNavBar() {
   };
 
   const menuItems = [
-    user&&{
-      label: "Find Jobs",
-      path: "/jobs",
-      icon: faBriefcase,
-      className: "jobs-link",
-    },
     { label: "Companies", path: "/companies", icon: faBuilding },
     { label: "Career Guidance", path: "/career", icon: faGraduationCap },
-    { label: "About", path: "/about", icon: faUser },
-  ].filter(Boolean);
+  ];
 
   const userMenuItems = [
     {
